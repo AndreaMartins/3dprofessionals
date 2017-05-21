@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
 html {
-  color: black;
+color: black;
 }
+
 .container-home-custom{
   padding: 0px;
   border-radius: 0px;
@@ -14,7 +17,7 @@ html {
 .banner {
   background-image: url("./assets/images/stay.jpg");
   margin-bottom: 0;
-  height: 100vh;
+  height: 85vh;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
@@ -44,7 +47,7 @@ h2 a {
   color: #313131;
 }
 
-h2 a:hover {
+h2 a:hover, h2 a:active {
   text-decoration: none;
   color: #313131;
 }

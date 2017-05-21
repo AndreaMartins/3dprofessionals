@@ -36,7 +36,7 @@
     <div class="col-md-4 selectContainer">
       <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-          <select name="department" class="form-control selectpicker">
+          <select name="role" class="form-control selectpicker">
             <option value="">Select your Role</option>
             <option>Client</option>
             <option>Professional</option>
@@ -151,7 +151,6 @@
                       }
                   }
               },
-
   user_password: {
                   validators: {
                        stringLength: {
@@ -162,7 +161,6 @@
                       }
                   }
               },
-
   confirm_password: {
                   validators: {
                        stringLength: {
@@ -193,11 +191,10 @@
                        }
                   }
               },
-
-  department: {
+  role: {
                   validators: {
                       notEmpty: {
-                          message: 'Please select your Department/Office'
+                          message: 'Please select your Role'
                       }
                   }
               },
