@@ -16,7 +16,7 @@ const userSchema = new Schema({
      enum : ['CLIENT', 'PROFESSIONAL'],
      default : 'CLIENT'
    },
-  saldo: Number
+
   });
 
 const User = mongoose.model("User", userSchema);

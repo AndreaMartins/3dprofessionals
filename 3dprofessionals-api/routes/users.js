@@ -35,6 +35,7 @@ router.get('/edit-profile', (req, res, next) => {
 
 router.post('/edit', (req, res, next) => {
 
+//this should be later router.post('/edit', upload.single('profile_image'), (req, res, next) => {
 
   let userInfo;
 
