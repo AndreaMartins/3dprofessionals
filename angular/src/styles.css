@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html {
+color: black;
+}
+
+.container-home-custom{
+  padding: 0px;
+  border-radius: 0px;
+}
+
+#upper-border {
+  height: 50px;
+}
+
+.banner {
+  background-image: url("./assets/images/stay.jpg");
+  margin-bottom: 0;
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.title-box {
+  margin-top: 20px;
+
+}
+
+.subtitle {
+  margin-top: 20px;
+  text-shadow: 0 1px 3px #0f0f0f;
+}
+
+h2 a {
+  color: #313131;
+}
+
+h2 a:hover, h2 a:active {
+  text-decoration: none;
+  color: #313131;
+}
+
+.center-form{
+  text-shadow: 0 1px 3px #0f0f0f;
+
+}
+
+.icon-custom{
+  width: 35px;
+  height: auto;
+}
+
+.input-lg-custom{
+  width: 620px;
+}
+
+.btn-custom{
+  width: 100%;
+  height:50px;
+}
+
+.back-grey{
+  background-color: #ffffff;
+  color: black;
+  padding-bottom: 2%;
+}
+
+
+.back-black {
+background-color: #3B3B3B;
+color: gray;
+font-size: 10px;
+padding-top: 2%;
+}
+
+.label-text{
+  color: black;
+  text-shadow: 3px 1px 5px rgba(150, 150, 150, 1);
+}
