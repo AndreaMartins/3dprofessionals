@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var jwtOptions = require('../config/jwtOptions');
-const upload = request('../config/multer')
+
+const upload = require('../config/multer')
 
 // Our user model
 const User           = require("../model/user");
@@ -51,16 +52,15 @@ router.post("/signup", (req, res, next) => {
   var email = req.body.email;
   var password = req.body.password;
   var role = req.body.role;
-
+  console.log("body ", req.body)
   if (!email || !password) {
     res.status(400).json({ message: "Provide email and password" });
-    return;
   }
 
   User.findOne({ email }, "email", (err, user) => {
+    console.log("inside user")
     if (user !== null) {
       res.status(400).json({ message: 'email exists' });
-      return;
     }
 
     var salt     = bcrypt.genSaltSync(bcryptSalt);
