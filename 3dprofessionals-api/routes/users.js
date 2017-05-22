@@ -4,22 +4,9 @@ var express = require('express');
 var router = express.Router();
 const User = require('../model/user');
 const Project = require('../model/user');
+const upload = require('../config/multer');
 const mongoose = require('mongoose');
 
-//Get home page
-
-router.get('/', (req, res, next) => {
-
-  let user = req.user;
-
-    Project.find({}, (err, projects) => {
-      if (err) {
-        next(err);
-      } else {
-        res.render('index', { user: user, projects: projects});
-      }
-    });
-});
 
 //Get Edit Profile
 
@@ -44,8 +31,7 @@ router.post('/edit', (req, res, next) => {
           name: req.body.name,
           surname: req.body.username,
           email: req.body.email,
-          password: req.body.password,
-          saldo: req.body.saldo
+          password: req.body.password
         };
 
     } else {
@@ -55,7 +41,6 @@ router.post('/edit', (req, res, next) => {
           surname: req.body.username,
           email: req.body.email,
           password: req.body.password,
-          saldo: req.body.saldo,
           profilePic: 'uploads/' + req.file.filename,
     };
   }
