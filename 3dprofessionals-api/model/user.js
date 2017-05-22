@@ -16,11 +16,7 @@ const userSchema = new Schema({
      enum : ['CLIENT', 'PROFESSIONAL'],
      default : 'CLIENT'
    },
-  saldo: Number,
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+  saldo: Number
   });
 
 const User = mongoose.model("User", userSchema);

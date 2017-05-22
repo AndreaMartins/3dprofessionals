@@ -33,7 +33,7 @@ router.get('/edit-profile', (req, res, next) => {
 
 //Post Edit Profile
 
-router.post('/edit', upload.single('profile_image'), (req, res, next) => {
+router.post('/edit', (req, res, next) => {
 
 
   let userInfo;
