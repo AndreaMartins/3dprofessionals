@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { SessionService } from './services/session.service';
+import{routes} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,6 @@ import { SessionService } from './services/session.service';
     DashboardComponent,
     HomeComponent,
     LoginComponent,
-    DashboardComponent,
     ProfileComponent,
     SignupComponent
   ],
@@ -26,7 +26,7 @@ import { SessionService } from './services/session.service';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
