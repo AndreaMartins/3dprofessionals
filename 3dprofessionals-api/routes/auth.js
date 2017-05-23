@@ -1,9 +1,11 @@
+
+
 var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var jwtOptions = require('../config/jwtOptions');
 
-const upload = require('../config/multer')
+const upload = require('../config/multer');
 
 // Our user model
 const User           = require("../model/user");
@@ -38,29 +40,30 @@ router.post("/login", function(req, res) {
         	console.log('user', user);
           var payload = {id: user._id/*, user: user.email*/};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
-          console.log(token)
           res.json({message: "ok", token: token, user: user});
         }
       });
     }
-  })
+  });
 });
 
 router.post("/signup", (req, res, next) => {
+  console.log('hi')
   var name = req.body.name;
   var surname = req.body.surname;
   var email = req.body.email;
   var password = req.body.password;
   var role = req.body.role;
-  console.log("body ", req.body)
+
   if (!email || !password) {
     res.status(400).json({ message: "Provide email and password" });
+    return;
   }
 
   User.findOne({ email }, "email", (err, user) => {
-    console.log("inside user")
     if (user !== null) {
       res.status(400).json({ message: 'email exists' });
+        return;
     }
 
     var salt     = bcrypt.genSaltSync(bcryptSalt);
@@ -81,7 +84,7 @@ router.post("/signup", (req, res, next) => {
         var payload = {id: user._id/*, user: user.email*/};
 
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
-        res.status(200).json({message: "ok", token: token/*, user: user*/});
+        res.status(200).json({message: "ok", token: token , user: user});
       	// res.status(200).json(user);
       }
     });

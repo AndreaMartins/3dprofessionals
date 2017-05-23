@@ -3,16 +3,16 @@ import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   constructor(
-    private session: SessionService,
-    private router:  Router,
 
+    private session: SessionService,
+  	private router:  Router,
   ) { }
 
   ngOnInit() {
