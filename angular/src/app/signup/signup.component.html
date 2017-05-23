@@ -35,9 +35,8 @@
           <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
               <select name="role" class="form-control selectpicker" [(ngModel)]="newUser.role">
-                <option value="">Select your Role</option>
-                <option>Client</option>
-                <option>Professional</option>
+                <option value="CLIENT">Client</option>
+                <option value="PROFESSIONAL">Professional</option>
             </select>
           </div>
         </div>
@@ -46,7 +45,7 @@
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Password</label>
+        <label class="col-md-4 control-label">Password</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>

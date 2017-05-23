@@ -16,14 +16,14 @@ const bcryptSalt     = 10;
 
 
 router.post("/login", function(req, res) {
-
   if(req.body.email && req.body.password){
     var email = req.body.email;
     var password = req.body.password;
   }
 
-  if (email === "" || password === "") {
-    res.status(401).json({message:"fill up the fields"});
+  if (req.body.email === "" || req.body.password === "") {
+        console.log('fields');
+    res.json({message:"fill up the fields"});
     return;
   }
 

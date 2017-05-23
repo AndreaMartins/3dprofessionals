@@ -11,6 +11,7 @@ import { FileUploader } from "ng2-file-upload";
 export class SignupComponent implements OnInit {
 
   newUser = {
+    role: '',
     email: '',
     password: ''
   };
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
           if (result === true) {
               // login successful
               console.log('result ok', result);
-              this.router.navigate(['/']);
+              this.router.navigate(['/dashboard']);
           } else {
           		console.log('result ko', result);
               // login failed
