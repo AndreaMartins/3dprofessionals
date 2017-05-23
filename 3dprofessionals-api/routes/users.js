@@ -9,13 +9,14 @@ const mongoose = require('mongoose');
 
 
 //Get Profile
-
-router.get('/profile', (req, res, next) => {
-
-  let user = req.user;
-
-  res.json( { user: user});
-
+router.get('/users/:id', (req, res, next) => {
+  let user = req.params.id;
+  User.find({_id:user},(err,users)=>{
+    if (err) res.status(401).json({message:"not found"});
+  else{
+  res.status(200).json(users[0]);
+  }
+  });
 });
 
 //Post Edit Profile

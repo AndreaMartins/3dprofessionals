@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.session.getUser(this.user.id).subscribe(result=>{
+      console.log(result);
+    });
   }
 
   logout() {
