@@ -1,0 +1,9 @@
+.container-home-custom{
+  padding: 0px;
+  border-radius: 0px;
+}
+
+nav i {
+  float:right;
+  font-size: 3rem;
+}
