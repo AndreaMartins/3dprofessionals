@@ -10,11 +10,11 @@ const mongoose = require('mongoose');
 
 //Get Edit Profile
 
-router.get('/edit-profile', (req, res, next) => {
+router.get('/profile', (req, res, next) => {
 
   let user = req.user;
 
-  res.render('editprofile', { user: user});
+  res.json( { user: user});
 
 });
 

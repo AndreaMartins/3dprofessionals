@@ -13,6 +13,6 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'edit-profile', component: ProfileComponent, canActivate: [SessionService] }
+  { path: 'dashboard', component: DashboardComponent /* canActivate: [SessionService] */ },
+  { path: 'profile', component: ProfileComponent, /* canActivate: [SessionService] */ }
 ];
