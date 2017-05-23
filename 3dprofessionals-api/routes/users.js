@@ -8,7 +8,7 @@ const upload = require('../config/multer');
 const mongoose = require('mongoose');
 
 
-//Get Edit Profile
+//Get Profile
 
 router.get('/profile', (req, res, next) => {
 

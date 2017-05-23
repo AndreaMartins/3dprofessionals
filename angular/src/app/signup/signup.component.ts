@@ -11,11 +11,7 @@ import { FileUploader } from "ng2-file-upload";
 export class SignupComponent implements OnInit {
 
   newUser = {
-    name: '',
-    surname: '',
     email: '',
-    address: '',
-    role: '',
     password: ''
   };
 
