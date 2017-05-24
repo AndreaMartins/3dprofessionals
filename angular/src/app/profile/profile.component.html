@@ -1,3 +1,17 @@
+<div class="upper-border"></div>
+<div class="container-fluid">
+      <div class="row profile-row">
+        <div class="col-md-4" >
+          <div class="panel-custom">
 
-
-{{user | json}}
+              <img class="img-responsive center-custom" alt="profile image" [src]='user.profilePic'>
+                      <div class="center-user-info">
+                        <h4>Name: {{user.name}} <span class="small">{{user.surname}}</span></h4>
+                        <h4>Email: {{user.email}}</h4>
+                        <h4>Role: {{user.role}}</h4>
+                      </div>
+          </div><!--panel-custom-->
+          <button class="btn btn-primary center-user-info" (click)="editProfile()"> Edit profile </button>
+    </div><!-- col-md-4 -->
+  </div><!-- row -->
+</div><!-- container -->

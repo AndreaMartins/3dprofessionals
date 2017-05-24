@@ -18,17 +18,25 @@
   <div class="container">
 
        <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-       <fieldset>
+  
 
 
       <!-- Text input-->
 
       <div class="form-group">
+
           <label class="col-md-4 control-label">Name of the project</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
             <input  name="name" placeholder="Name of the project" [(ngModel)]="newProject.name" class="form-control"  type="text">
+
+          <label class="col-md-4 control-label">Project name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input  name="project-name" placeholder="Project name" class="form-control"  type="text">
+
           </div>
         </div>
       </div>
@@ -36,16 +44,25 @@
       <!-- Text input-->
 
       <div class="form-group">
+
         <label class="col-md-4 control-label" >Link with files</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
             <input name="surname" placeholder="Link with files" [(ngModel)]="newProject.link" class="form-control"  type="text">
+
+        <label class="col-md-4 control-label" >Link to project</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
+            <input name="link" placeholder="Link" class="form-control"  type="text">
+
           </div>
         </div>
       </div>
 
       <div class="form-group">
+
         <label class="col-md-4 control-label">Select your professional</label>
         <div class="col-md-4 selectContainer">
           <div class="input-group">
@@ -54,19 +71,36 @@
                 <option >Select your professional</option>
                 <option value="exterior">Exterior</option>
                 <option value="interior">Interior</option>
+
+        <label class="col-md-4 control-label">Select project type</label>
+        <div class="col-md-4 selectContainer">
+          <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+              <select name="project-type" class="form-control selectpicker">
+                <option value="">Interior</option>
+                <option>Exterior</option>
+
             </select>
           </div>
         </div>
-      </div>
+    
 
       <!-- Text input-->
 
       <div class="form-group">
+
           <label class="col-md-4 control-label">Description</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
             <input  name="name" placeholder="Description" [(ngModel)]="newProject.description" class="form-control"  type="text">
+
+        <label class="col-md-4 control-label" >Price</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+             <input name="price" placeholder="0,00 €" class="form-control"  type="number">
+
           </div>
         </div>
       </div>
@@ -74,14 +108,23 @@
       <!-- Text input-->
 
       <div class="form-group">
+
           <label class="col-md-4 control-label">Special considerations</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i></span>
             <input  name="name" placeholder="Special considerations" [(ngModel)]="newProject.considerations" class="form-control"  type="text">
+
+        <label class="col-md-4 control-label" >Description</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input name="description" placeholder="description" class="form-control"  type="text">
+
           </div>
         </div>
       </div>
+
 
 
 
@@ -97,7 +140,18 @@
           </div>
       </div> -->
 
-      <!-- Select Basic -->
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Details</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input name="details" placeholder="details" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+
+
 
       <!-- Success message -->
        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
@@ -110,6 +164,6 @@
           </div>
         </div>
 
-         </fieldset>
-        </form>
+        
+     
    </div>
