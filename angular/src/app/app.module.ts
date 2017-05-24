@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SessionService } from './services/session.service';
 import{routes} from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     ProfileComponent,
     SignupComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

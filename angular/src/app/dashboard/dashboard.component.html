@@ -1,20 +1,7 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Angular</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <a href="/profile"><i class="glyphicon glyphicon-user"></i></a>
   </div>
-</nav>
 <div class="container-fluid  container-home-custom">
 
 
@@ -41,7 +28,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-            <input  name="name" placeholder="Name of the project" class="form-control"  type="text">
+            <input  name="name" placeholder="Name of the project" [(ngModel)]="newProject.name" class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -53,7 +40,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-            <input name="surname" placeholder="Link with files" class="form-control"  type="text">
+            <input name="surname" placeholder="Link with files" [(ngModel)]="newProject.link" class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -63,10 +50,10 @@
         <div class="col-md-4 selectContainer">
           <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-              <select name="role" class="form-control selectpicker">
-                <option value="">Select your professional</option>
-                <option>Exterior</option>
-                <option>Interior</option>
+              <select name="role" [(ngModel)]="newProject.professional" class="form-control selectpicker">
+                <option >Select your professional</option>
+                <option value="exterior">Exterior</option>
+                <option value="interior">Interior</option>
             </select>
           </div>
         </div>
@@ -100,7 +87,7 @@
 
       <!-- Text input-->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="col-md-4 control-label">Price</label>
           <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
@@ -108,7 +95,7 @@
                 <input name="contact_no" placeholder="0,00 €" [(ngModel)]="newProject.price" class="form-control" type="text">
             </div>
           </div>
-      </div>
+      </div> -->
 
       <!-- Select Basic -->
 
@@ -119,14 +106,10 @@
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-4"><br>
-     <button (click)="createProject()" type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"> Submit </span></button>
+     <button (click)="createProject()" type="button" class="btn btn-info" ><span class="glyphicon glyphicon-send"> Submit </span></button>
           </div>
         </div>
 
          </fieldset>
         </form>
    </div>
-
-
-</body>
-</html>

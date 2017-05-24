@@ -11,6 +11,7 @@ export class SessionService {
   public token: string;
   public isAuth: boolean;
   public user: string;
+  public project: Object;
 
   BASE_URL: string = 'http://localhost:3000';
 
@@ -96,6 +97,7 @@ export class SessionService {
         });
   }
 
+//not using yet
 getUser(id){
   return this.http.get(`${this.BASE_URL}/users/`+id)
   .map((response: Response) => {
@@ -103,13 +105,19 @@ getUser(id){
   });
 }
 
-createProject(id){
-  return this.http.get(`${this.BASE_URL}/users/`+id)
+createProject(project){
+  return this.http.post(`${this.BASE_URL}/project`, project)
   .map((response: Response) => {
     return response.json();
   });
 }
 
+getProject(id){
+  return this.http.get(`${this.BASE_URL}/project/`+id)
+  .map((response: Response) => {
+    return response.json();
+  });
+}
 
   logout() {
       // clear token remove user from local storage to log user out

@@ -14,35 +14,28 @@ export class DashboardComponent implements OnInit {
     link: '',
     professional: '',
     description: '',
-    considerations:'',
+    considerations:''
   };
-  users: Object = {}
-  user: any;
-  error: string;
+
   constructor(
     private session: SessionService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.session.getList()
-      .subscribe((users) => {
-        console.log(users)
-        this.users = users;
-      });
 
   }
 
   createProject(){
     this.session.createProject(this.newProject)
       .subscribe(result => {
-          if (result === true) {
+          if (result !== "") {
               // login successful
-              console.log('result ok', result);
-              this.router.navigate(['/dashboard']);
+              console.log('result ok', result._id);
+              this.router.navigate(['/project', result._id]);
           } else {
               console.log('result ko', result);
-              // login failed
+                // login failed
               // this.error = 'Username or password is incorrect';
           }
       });
