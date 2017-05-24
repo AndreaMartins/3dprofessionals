@@ -17,12 +17,22 @@ user: Object = {};
   ) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("user"))
+    let user = JSON.parse(localStorage.getItem("user"))
+    this.session.getUser(user._id)
+      .subscribe((user) => {
+        this.user = user
+      });
+
 
 //   logout() {
 //   this.session.logout();
 //   // this.router.navigate(['/login']);
 // }
-
 }
+
+editProfile() {
+        this.router.navigate(['/editprofile']);
+  	}
+
+
 }
