@@ -5,7 +5,11 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+
+import { ProjectComponent } from './project/project.component';
+
 import { EditprofileComponent } from './editprofile/editprofile.component';
+
 import { SessionService } from './services/session.service';
 
 
@@ -15,5 +19,9 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent /* canActivate: [SessionService] */ },
   { path: 'profile', component: ProfileComponent },
+
+  { path: 'project/:id', component: ProjectComponent }
+
   { path: 'editprofile', component: EditprofileComponent }
+
 ];
