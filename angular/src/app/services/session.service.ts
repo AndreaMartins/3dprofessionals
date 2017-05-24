@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
@@ -97,22 +97,31 @@ export class SessionService {
   }
 
 getUser(id){
-  return this.http.get(`${this.BASE_URL}/users/`+id)
+  return this.http.get(`${this.BASE_URL}/user/`+id)
   .map((response: Response) => {
     return response.json();
   });
 }
 
+edit(user) {
+  console.log("service", user._id)
+  return this.http.post("http://localhost:3000/update", user )
+      .map((response: Response) => {
+        console.log("inside response")
+        response.json()
+      });
+}
 
-  logout() {
-      // clear token remove user from local storage to log user out
-      this.token = null;
-      this.user = null;
-      this.isAuth = false;
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
 
-      this.router.navigate(['/login']);
-  }
+logout() {
+    // clear token remove user from local storage to log user out
+    this.token = null;
+    this.user = null;
+    this.isAuth = false;
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    this.router.navigate(['/login']);
+}
 
 }

@@ -1,7 +1,9 @@
+<div class="container">
 
-  <div class="container">
+      <h1 class="text-center">Edit profile</h1>
 
-       <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+
+       <form class="well form-horizontal" method="post"  id="contact_form">
        <fieldset>
 
 
@@ -12,7 +14,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="name" placeholder="Name" [(ngModel)]="newUser.name" class="form-control"  type="text">
+            <input name="name" placeholder="Name" class="form-control" [(ngModel)]="user.name" type="text">
           </div>
         </div>
       </div>
@@ -24,32 +26,33 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="surname" placeholder="Surname" [(ngModel)]="newUser.surname" class="form-control"  type="text">
+            <input name="surname" placeholder="Surname" class="form-control" [(ngModel)]="user.surname" type="text">
           </div>
         </div>
       </div>
 
-      <div class="form-group">
+
+      <!-- <div class="form-group">
         <label class="col-md-4 control-label">Role</label>
         <div class="col-md-4 selectContainer">
           <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-              <select name="role" class="form-control selectpicker" [(ngModel)]="newUser.role">
-                <option selected="selected" value="CLIENT" >Client</option>
-                <option value="PROFESSIONAL">Professional</option>
+              <select name="role" class="form-control selectpicker" [(ngModel)]="user.role">
+                <option>Client</option>
+                <option>Professional</option>
             </select>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label">Password</label>
+        <label class="col-md-4 control-label" >Password</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="password" placeholder="Password" [(ngModel)]="newUser.password" class="form-control"  type="password">
+            <input name="user_password" placeholder="Password" class="form-control" [(ngModel)]="user.password" type="password">
           </div>
         </div>
       </div>
@@ -61,7 +64,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="confirm_password" placeholder="Confirm Password"  [(ngModel)]="newUser.password" class="form-control"  type="password">
+            <input name="confirm_password" placeholder="Confirm Password" class="form-control" [(ngModel)]="user.password" type="password">
           </div>
         </div>
       </div>
@@ -72,21 +75,20 @@
           <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email" placeholder="E-Mail Address" [(ngModel)]="newUser.email" class="form-control"  type="text">
+                <input name="email" placeholder="E-Mail Address" class="form-control" [(ngModel)]="user.email" type="text">
             </div>
           </div>
         </div>
 
-      <!-- Select Basic -->
 
       <!-- Success message -->
-       <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+       <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
 
       <!-- Button -->
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-4"><br>
-        <button (click)="signup()" type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"></span></button>
+     <button type="button" class="btn btn-info" (click)="saveProfile()">Save</button>
           </div>
         </div>
 
