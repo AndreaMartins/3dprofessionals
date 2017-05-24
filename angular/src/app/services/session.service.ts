@@ -96,6 +96,14 @@ export class SessionService {
         });
   }
 
+getUser(id){
+  return this.http.get(`${this.BASE_URL}/users/`+id)
+  .map((response: Response) => {
+    return response.json();
+  });
+}
+
+
   logout() {
       // clear token remove user from local storage to log user out
       this.token = null;
