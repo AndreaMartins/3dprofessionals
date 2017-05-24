@@ -3,10 +3,13 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const projectSchema = new Schema({
-  date: Date,
+  name: String,
+  link: String,
   starttime: String,
   description: String,
+  considerations: String,
   price: Number,
+  date: Date,
   professional: { type: Schema.Types.ObjectId, ref: 'User' },
   client: { type: Schema.Types.ObjectId, ref: 'User' },
   status:{

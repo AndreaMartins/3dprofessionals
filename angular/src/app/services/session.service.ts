@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
@@ -103,6 +103,13 @@ getUser(id){
   });
 }
 
+createProject(id){
+  return this.http.get(`${this.BASE_URL}/users/`+id)
+  .map((response: Response) => {
+    return response.json();
+  });
+}
+
 
   logout() {
       // clear token remove user from local storage to log user out
@@ -114,5 +121,11 @@ getUser(id){
 
       this.router.navigate(['/login']);
   }
+
+  getList() {
+    return this.http.get(`${this.BASE_URL}/users`)
+      .map((res) => res.json());
+  }
+
 
 }

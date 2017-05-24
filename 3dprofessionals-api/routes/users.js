@@ -19,6 +19,19 @@ router.get('/users/:id', (req, res, next) => {
   });
 });
 
+
+//Get Users
+router.get('/users', (req, res, next) => {
+  User.find((err,users)=>{
+    if (err) res.status(401).json({message:"not found"});
+  else{
+    console.log(users);
+  res.json({users});
+  }
+  });
+});
+
+
 //Post Edit Profile
 
 router.post('/edit', (req, res, next) => {

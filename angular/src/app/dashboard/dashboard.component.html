@@ -37,11 +37,11 @@
       <!-- Text input-->
 
       <div class="form-group">
-          <label class="col-md-4 control-label">Name</label>
+          <label class="col-md-4 control-label">Name of the project</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="name" placeholder="Name" class="form-control"  type="text">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+            <input  name="name" placeholder="Name of the project" class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -49,24 +49,24 @@
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Surname</label>
+        <label class="col-md-4 control-label" >Link with files</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="surname" placeholder="Surname" class="form-control"  type="text">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
+            <input name="surname" placeholder="Link with files" class="form-control"  type="text">
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-md-4 control-label">Role</label>
+        <label class="col-md-4 control-label">Select your professional</label>
         <div class="col-md-4 selectContainer">
           <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
               <select name="role" class="form-control selectpicker">
-                <option value="">Select your Role</option>
-                <option>Client</option>
-                <option>Professional</option>
+                <option value="">Select your professional</option>
+                <option>Exterior</option>
+                <option>Interior</option>
             </select>
           </div>
         </div>
@@ -75,11 +75,11 @@
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Password</label>
+          <label class="col-md-4 control-label">Description</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="user_password" placeholder="Password" class="form-control"  type="password">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input  name="name" placeholder="Description" [(ngModel)]="newProject.description" class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -87,35 +87,25 @@
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label" >Confirm Password</label>
+          <label class="col-md-4 control-label">Special considerations</label>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i></span>
+            <input  name="name" placeholder="Special considerations" [(ngModel)]="newProject.considerations" class="form-control"  type="text">
           </div>
         </div>
       </div>
 
-      <!-- Text input-->
-        <div class="form-group">
-        <label class="col-md-4 control-label">E-Mail</label>
-          <div class="col-md-4 inputGroupContainer">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
-            </div>
-          </div>
-        </div>
 
 
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label">Saldo</label>
+        <label class="col-md-4 control-label">Price</label>
           <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
-                <input name="contact_no" placeholder="0,00 €" class="form-control" type="text">
+                <input name="contact_no" placeholder="0,00 €" [(ngModel)]="newProject.price" class="form-control" type="text">
             </div>
           </div>
       </div>
@@ -129,7 +119,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-4"><br>
-     <button type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"></span></button>
+     <button (click)="createProject()" type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"> Submit </span></button>
           </div>
         </div>
 
