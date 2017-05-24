@@ -8,22 +8,24 @@ const upload = require('../config/multer');
 const mongoose = require('mongoose');
 
 
-//Get Profile
-router.get('/users/:id', (req, res, next) => {
+//Get Current User
+router.get('/user/:id', (req, res, next) => {
   let user = req.params.id;
-  User.find({_id:user},(err,users)=>{
+  User.findOne({"_id":user},(err,user)=>{
     if (err) res.status(401).json({message:"not found"});
   else{
-  res.status(200).json(users[0]);
+  res.json(user);
   }
   });
 });
 
 //Post Edit Profile
 
-router.post('/edit', (req, res, next) => {
+router.post("/update", (req, res, next) => {
+  //this should be later router.post('/update', upload.single('profile_image'), (req, res, next) => {
+  console.log("inside update", req.body);
 
-//this should be later router.post('/edit', upload.single('profile_image'), (req, res, next) => {
+
 
   let userInfo;
 
@@ -36,21 +38,33 @@ router.post('/edit', (req, res, next) => {
         };
 
     } else {
-
         userInfo = {
           name: req.body.name,
           surname: req.body.username,
           email: req.body.email,
           password: req.body.password,
-          profilePic: 'uploads/' + req.file.filename,
-    };
-  }
+          profilePic: 'uploads/' + req.file.filename
+        };
+    }
 
+    var userId = req.body._id.toString();
+    userId = mongoose.Types.ObjectId(userId);
+    console.log("this is user ID server" ,userId);
 
+    User.findByIdAndUpdate(userId, userInfo, (err, user)=>{
+      if (err) {
+        console.log("GOT AN ERROR");
+        next(err);
+      } else {
 
-  User.findByIdAndUpdate(req.user._id, userInfo, (err, user)=>{
-    res.redirect('/');
-  });
+        console.log("GOT UPDATED", user);
+        res.json({user});
+      }
+    });
+  // User.findByIdAndUpdate(req.user._id, userInfo, (err, user)=>{
+  //   console.log("sad")
+  //
+  // });
 });
 
 
@@ -62,7 +76,7 @@ router.get('/:id/deleteprofile', (req, res, next) => {
   User.deleteOne({ _id: id }, (err) => {
     if (err) { next(err); }
 
-    res.redirect('/login');
+    res.redirect('/home');
   });
 });
 
