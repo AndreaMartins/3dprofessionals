@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+user: Object = {};
 
   constructor(
     private session: SessionService,
@@ -16,14 +17,12 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.session.getUser(this.user.id).subscribe(result=>{
-      console.log(result);
-    });
-  }
+    this.user = JSON.parse(localStorage.getItem("user"))
 
-  logout() {
-  this.session.logout();
-  // this.router.navigate(['/login']);
+//   logout() {
+//   this.session.logout();
+//   // this.router.navigate(['/login']);
+// }
+
 }
-
 }
