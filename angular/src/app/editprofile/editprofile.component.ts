@@ -13,7 +13,7 @@ export class EditprofileComponent implements OnInit {
   user: Object = {};
 
   uploader: FileUploader = new FileUploader({
-    url: `https://3dprofessionals.herokuapp.com/edit`,
+    url: `https://localhost:3000/api/users`,
 
     authToken: `JWT ${this.session.token}`
   });
@@ -65,7 +65,6 @@ export class EditprofileComponent implements OnInit {
   }
 
 
-
   saveProfile() {
     // console.log("inside component saveProfile")
     this.session.edit(this.user)
@@ -76,10 +75,11 @@ export class EditprofileComponent implements OnInit {
         this.router.navigate(['/profile']);
       });
 
-
-
-
   }
 
+  logout() {
+  this.session.logout();
+  // this.router.navigate(['/login']);
+}
 
 }

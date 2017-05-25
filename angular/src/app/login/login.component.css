@@ -32,6 +32,12 @@ color: gray;
 font-size: 10px;
 }
 
+a {
+  display: block;
+  float: right;
+  margin-top: .6rem;
+}
+
 /*MEDIA QUERIES*/
 @media (max-width: 1000px) {
 

@@ -1,3 +1,7 @@
+a:hover, a:active {
+  text-decoration: none;
+}
+
 nav .glyphicon-home {
   float:right;
   font-size: 3rem;
