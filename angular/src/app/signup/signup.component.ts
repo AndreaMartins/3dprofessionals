@@ -13,7 +13,9 @@ export class SignupComponent implements OnInit {
   newUser = {
     role: '',
     email: '',
-    password: ''
+    password: '',
+    name: '',
+    surname: ''
   };
 
   user: any;

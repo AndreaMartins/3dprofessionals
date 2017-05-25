@@ -35,17 +35,23 @@ export class EditprofileComponent implements OnInit {
       private session: SessionService,
       private router:  Router,
 
-    ) { }
+    ) {  }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("user"));
+
     let user = JSON.parse(localStorage.getItem("user"))
+    this.session.getUser(user._id)
+      .subscribe((user) => {
+        this.user = user
+      }); /* Ajax call */
+
     this.newUser._id = user._id
     this.newUser.name = user.name
     this.newUser.surname = user.surname
     this.newUser.email = user.email
     this.newUser.password = user.password
     this.newUser.role = user.role
+
 
     this.uploader.onSuccessItem = (item, user) => {
       localStorage.removeItem("user")
@@ -67,7 +73,7 @@ export class EditprofileComponent implements OnInit {
         console.log("subscribe")
         // this.user = user
         // this.user = userEdit
-        this.router.navigate(['']);
+        this.router.navigate(['/profile']);
       });
 
 
