@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent /* canActivate: [SessionService] */ },
   { path: 'profile', component: ProfileComponent },
 
-  { path: 'project/:id', component: ProjectComponent }
+  { path: 'project/:id', component: ProjectComponent },
 
   { path: 'editprofile', component: EditprofileComponent }
 

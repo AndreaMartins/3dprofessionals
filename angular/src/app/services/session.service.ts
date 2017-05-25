@@ -2,7 +2,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 
-import { Http, Response, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -122,9 +121,9 @@ getProject(id){
   .map((response: Response) => {
     return response.json();
   });
-
-edit(user) {
-  console.log("service", user._id)
+}
+edit(user){
+  // console.log("service", user._id)
   return this.http.post("http://localhost:3000/update", user )
       .map((response: Response) => {
         console.log("inside response")
