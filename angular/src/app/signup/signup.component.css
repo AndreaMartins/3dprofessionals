@@ -2,19 +2,6 @@ html {
 color: black;
 }
 
-#signup-panel {
-  margin-top: 40px;
-  width: 110% !important;
-}
-
-form-group {
-  width: 390% !important;
-}
-
-input {
-  width:400% !important;
-}
-
 .container-home-custom{
   padding: 0px;
   border-radius: 0px;
@@ -41,18 +28,39 @@ color: gray;
 font-size: 10px;
 }
 
-/*MEDIA QUERIES*/
-
-@media only screen and (max-width: 1050px) and (min-width: 890px) {
+a {
+  display: block;
+  margin-top: 1.5rem;
+  width: 80%;
+}
+#signfrm {
+  margin-top: 3rem;
+  margin:5% auto;
+  width: 25%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  min-width: 100%;
+  }
   #signup-panel {
-  min-width: 120% !important;
+  margin-top: 20px;
 }
-
-form-group {
-  min-width: 120% !important;
-}
-
 input {
-  min-width:80% !important;
+  margin-bottom: 1rem;
 }
+
+.sign-h{
+text-align:left;
+color:#317EAC;
+}
+#sign-icon{
+margin-right:5px;
+color:#317EAC;
+}
+
+#sign-frm-input-btn {
+  width: 50%;
+  margin: auto;
+  font-size: 20;
+  padding: 5px !important;
 }

@@ -99,7 +99,6 @@ export class SessionService {
         });
   }
 
-//not using yet
 getUser(id){
   return this.http.get(`${this.BASE_URL}/user/`+id)
   .map((response: Response) => {

@@ -23,16 +23,14 @@ user: Object = {};
         this.user = user
       });
 
+  }
 
-//   logout() {
-//   this.session.logout();
-//   // this.router.navigate(['/login']);
-// }
-}
+  editProfile() {
+          this.router.navigate(['/editprofile']);
+    	}
 
-editProfile() {
-        this.router.navigate(['/editprofile']);
-  	}
-
+  logout() {
+      this.session.logout();
+    }
 
 }
