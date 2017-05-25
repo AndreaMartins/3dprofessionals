@@ -14,8 +14,11 @@ export class DashboardComponent implements OnInit {
     link: '',
     professional: '',
     description: '',
-    considerations:''
+    considerations:'',
+    client:''
   };
+
+professionals: Object = {};
 
   constructor(
     private session: SessionService,
@@ -23,10 +26,17 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   this.session.getProfessional()
+   .subscribe(prof => {
+      console.log(prof)
+      this.professionals = prof
+         console.log("test", this.professionals)
+   });
 
   }
 
   createProject(){
+      console.log(this.newProject)
     this.session.createProject(this.newProject)
       .subscribe(result => {
           console.log("result", result)

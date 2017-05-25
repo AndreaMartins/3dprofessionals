@@ -11,7 +11,6 @@ import { FileUploader } from "ng2-file-upload";
 
 export class ProjectComponent implements OnInit {
   project: any = {};
-
   projectId: number;
 
   // users: Object = {}

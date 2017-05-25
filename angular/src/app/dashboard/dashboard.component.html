@@ -43,7 +43,7 @@
       <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-          <input  name="name" placeholder="Name of the project" class="form-control"  type="text">
+          <input  name="name" placeholder="Name of the project" [(ngModel)]="newProject.name" class="form-control"  type="text">
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
       <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-          <input name="surname" placeholder="Link with files" class="form-control"  type="text">
+          <input name="link" placeholder="Link with files" [(ngModel)]="newProject.link"class="form-control"  type="text">
         </div>
       </div>
     </div>
@@ -65,11 +65,11 @@
       <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <select name="role" class="form-control selectpicker">
-              <option value="">Select your professional</option>
-              <option>Exterior</option>
-              <option>Interior</option>
+            <div *ngFor="let professional of professionals.users" >
+            <select  name="role" [(ngModel)]="newProject.professional" class="form-control selectpicker">
+              <option value="{{professional._id}}">{{professional.name}}</option>
           </select>
+        </div>
         </div>
       </div>
     </div>

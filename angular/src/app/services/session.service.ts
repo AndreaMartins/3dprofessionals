@@ -107,6 +107,14 @@ getUser(id){
   });
 }
 
+getProfessional(){
+  return this.http.get(`${this.BASE_URL}/users/professionals/`+ "PROFESSIONAL")
+  .map((response: Response) => {
+    return response.json();
+  });
+}
+
+
 
 createProject(project){
   return this.http.post(`${this.BASE_URL}/project`, project)

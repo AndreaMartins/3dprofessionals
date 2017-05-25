@@ -20,6 +20,17 @@ router.get('/user/:id', (req, res, next) => {
 });
 
 
+router.get('/users/professionals/:professionals', (req, res, next) => {
+    let role = req.params.professionals;
+  User.find({"role":role},(err,users)=>{
+    if (err) res.status(401).json({message:"not found"});
+  else{
+    console.log(users);
+  res.json({users});
+  }
+  });
+});
+
 //Get Users
 router.get('/users', (req, res, next) => {
   User.find((err,users)=>{
