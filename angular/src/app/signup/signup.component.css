@@ -1,1 +1,58 @@
-#success_message{ display: none;}
+html {
+color: black;
+}
+
+#signup-panel {
+  margin-top: 40px;
+  width: 110% !important;
+}
+
+form-group {
+  width: 390% !important;
+}
+
+input {
+  width:400% !important;
+}
+
+.container-home-custom{
+  padding: 0px;
+  border-radius: 0px;
+}
+
+#top-div {
+  background-image: url("../../assets/images/stay.jpg");
+  margin-bottom: 0;
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.back-black {
+background-color: #3B3B3B;
+color: gray;
+font-size: 10px;
+}
+
+/*MEDIA QUERIES*/
+
+@media only screen and (max-width: 1050px) and (min-width: 890px) {
+  #signup-panel {
+  min-width: 120% !important;
+}
+
+form-group {
+  min-width: 120% !important;
+}
+
+input {
+  min-width:80% !important;
+}
+}

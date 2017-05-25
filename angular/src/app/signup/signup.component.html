@@ -1,14 +1,18 @@
 
-  <div class="container">
+  <div id="upper-border"></div>
+<div class="container-fluid container-home-custom">
 
-       <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-       <fieldset>
+<div id="top-div">
+	<div class="col-md-3 col-md-offset-4">
+		<div class="panel panel-default" id="signup-panel">
+		  <div class="panel-body">
+		    <form class="well form-horizontal" action=" " method="post"  id="signup_form">
 
 
       <!-- Text input-->
 
       <div class="form-group">
-          <label class="col-md-4 control-label">Name</label>
+          <dt class="col-md-4 control-label">Name</dt>
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -80,16 +84,67 @@
       <!-- Select Basic -->
 
       <!-- Success message -->
-       <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+       <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
 
       <!-- Button -->
         <div class="form-group">
           <label class="col-md-4 control-label"></label>
           <div class="col-md-4"><br>
-        <button (click)="signup()" type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"></span></button>
+        <button (click)="signup()" type="submit" class="btn btn-primary" >Sign up</button>
           </div>
         </div>
+		    </form>
+				<!-- <div>{{error}}</div> -->
+		  </div>
+		</div>
+	</div>
+</div>
 
-         </fieldset>
-        </form>
-   </div>
+<br><br>
+      <div class="content-fluid back-black">
+        <div class="row">
+          <div class="col-xs-2"></div>
+          <div class="col-xs-8">
+              <div class="row">
+                <div class="col-md-3">
+
+                  <h6>RECENT POST</h6>
+                  Plaid polaroid green juice actually listicle, heirloom waistcoat 90's YOLO aesthetic beard. Yuccie prism forage, knausgaard hammock cred gochujang slow-carb bitters pickled kinfolk ennui truffaut meditation.
+                </div>
+                <div class="col-md-3">
+
+                  <h6>BLOG</h6>
+                  Lorem ipsum
+                  <hr>
+                  Lorem ipsum dolor
+                  <hr>
+                  Lorem ipsum
+                  <hr>
+                  Lorem ipsum dolor
+                  <hr>
+                </div>
+                <div class="col-md-3">
+
+                  <h6>META</h6>
+                  Lorem ipsum
+                  <hr>
+                </div>
+                <div class="col-md-3">
+
+                  <h6>ARCHIVES</h6>
+                  Lorem ipsum
+                  <hr>
+                  Lorem ipsum dolor
+                  <hr>
+                  Lorem ipsum
+                  <hr>
+                  Lorem ipsum dolor
+                  <hr>
+                </div>
+
+              </div>
+          </div>
+          <div class="col-xs-2"></div>
+        </div>
+      </div>
+</div>
