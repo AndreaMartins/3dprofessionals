@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   };
 
 professionals: Object = {};
+client: Object ={};
 
   constructor(
     private session: SessionService,
@@ -26,6 +27,12 @@ professionals: Object = {};
   ) { }
 
   ngOnInit() {
+// this.session.getClient()
+// .subscribe(client=>{
+//   this.clients= client
+//   console.log("test",this.clients)
+// });
+
    this.session.getProfessional()
    .subscribe(prof => {
       console.log(prof)
@@ -36,7 +43,8 @@ professionals: Object = {};
   }
 
   createProject(){
-      console.log(this.newProject)
+    var client = JSON.parse(localStorage.getItem("user"))
+    this.newProject.client = client._id
     this.session.createProject(this.newProject)
       .subscribe(result => {
           console.log("result", result)

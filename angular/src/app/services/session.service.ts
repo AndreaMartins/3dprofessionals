@@ -114,6 +114,12 @@ getProfessional(){
   });
 }
 
+// getClient(){
+//   return this.http.get(`${this.BASE_URL}/users/clients/`+ "CLIENT")
+//   .map((response: Response) => {
+//     return response.json();
+//   });
+// }
 
 
 createProject(project){

@@ -31,29 +31,42 @@ router.get("/",(req, res, next)=>{
 //Get project
 router.get('/project/:id', (req, res, next) => {
   let project = req.params.id;
-  Project.find({_id:project},(err,projects)=>{
+
+  Project.findById({_id:project},(err,project)=>{
     if (err) res.status(401).json({message:"not found"});
-  else{
-  res.status(200).json(projects[0]);
-  }
+    else{
+
+
+      Project
+      .findById({_id: project._id})
+      .populate("client")
+      .populate("professional")
+      .exec((err, project) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        return res.json(project);
+      });
+
+    }
   });
 });
 
 
 
 router.post('/project', (req, res, next) => {
-console.log(req.body);
 const newProject= Project({
   name: req.body.name,
   link: req.body.link,
   professional: req.body.professional,
   description:req.body.description,
-  considerations:req.body.considerations
+  considerations:req.body.considerations,
+  client:req.body.client
 })
 newProject.save((err,project)=>{
   if (err) res.status(400).json({messsage: err});
   else{
-    console.log(project);
     res.status(200).json(project)
   }
 })

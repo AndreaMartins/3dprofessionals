@@ -25,18 +25,30 @@ router.get('/users/professionals/:professionals', (req, res, next) => {
   User.find({"role":role},(err,users)=>{
     if (err) res.status(401).json({message:"not found"});
   else{
-    console.log(users);
+
   res.json({users});
   }
   });
 });
+
+router.get('/users/clients/:clients', (req, res, next) => {
+    let role = req.params.clients;
+  User.find({"role":role},(err,users)=>{
+    if (err) res.status(401).json({message:"not found"});
+  else{
+  
+  res.json({users});
+  }
+  });
+});
+
 
 //Get Users
 router.get('/users', (req, res, next) => {
   User.find((err,users)=>{
     if (err) res.status(401).json({message:"not found"});
   else{
-    console.log(users);
+
   res.json({users});
   }
   });
