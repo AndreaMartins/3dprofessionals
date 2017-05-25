@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: DashboardComponent /* canActivate: [SessionService] */ },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditprofileComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [SessionService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [SessionService] },
+  { path: 'editprofile', component: EditprofileComponent, canActivate: [SessionService]  }
 ];
