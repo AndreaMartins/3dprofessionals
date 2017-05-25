@@ -39,8 +39,6 @@ export class DashboardComponent implements OnInit {
               // this.error = 'Username or password is incorrect';
           }
       });
-
-
   }
 
 }

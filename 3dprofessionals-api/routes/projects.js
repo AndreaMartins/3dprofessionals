@@ -26,6 +26,21 @@ router.get("/",(req, res, next)=>{
   });
 });
 
+
+
+//Get project
+router.get('/project/:id', (req, res, next) => {
+  let project = req.params.id;
+  Project.find({_id:project},(err,projects)=>{
+    if (err) res.status(401).json({message:"not found"});
+  else{
+  res.status(200).json(projects[0]);
+  }
+  });
+});
+
+
+
 router.post('/project', (req, res, next) => {
 console.log(req.body);
 const newProject= Project({
