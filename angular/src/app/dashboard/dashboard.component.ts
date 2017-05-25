@@ -41,4 +41,9 @@ export class DashboardComponent implements OnInit {
       });
   }
 
+  logout() {
+  this.session.logout();
+  // this.router.navigate(['/login']);
+}
+
 }
