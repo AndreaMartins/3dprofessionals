@@ -45,7 +45,7 @@ router.post("/update", (req, res, next) => {
     if (req.file === undefined) {
         userInfo = {
           name: req.body.name,
-          surname: req.body.username,
+          surname: req.body.surname,
           email: req.body.email,
           password: req.body.password
         };
@@ -53,7 +53,7 @@ router.post("/update", (req, res, next) => {
     } else {
         userInfo = {
           name: req.body.name,
-          surname: req.body.username,
+          surname: req.body.surname,
           email: req.body.email,
           password: req.body.password,
           profilePic: 'uploads/' + req.file.filename
