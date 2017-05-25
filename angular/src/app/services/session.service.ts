@@ -1,5 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Response, RequestOptions } from '@angular/http';
+
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
+
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
@@ -11,6 +14,7 @@ export class SessionService {
   public token: string;
   public isAuth: boolean;
   public user: string;
+  public project: Object;
 
   BASE_URL: string = 'http://localhost:3000';
 
@@ -96,6 +100,7 @@ export class SessionService {
         });
   }
 
+//not using yet
 getUser(id){
   return this.http.get(`${this.BASE_URL}/user/`+id)
   .map((response: Response) => {
@@ -103,13 +108,28 @@ getUser(id){
   });
 }
 
-edit(user) {
-  console.log("service", user._id)
+
+createProject(project){
+  return this.http.post(`${this.BASE_URL}/project`, project)
+  .map((response: Response) => {
+    return response.json();
+  });
+}
+
+getProject(id){
+  return this.http.get(`${this.BASE_URL}/project/`+id)
+  .map((response: Response) => {
+    return response.json();
+  });
+}
+edit(user){
+  // console.log("service", user._id)
   return this.http.post("http://localhost:3000/update", user )
       .map((response: Response) => {
         console.log("inside response")
         response.json()
       });
+
 }
 
 
@@ -123,5 +143,11 @@ logout() {
 
     this.router.navigate(['/login']);
 }
+
+  getList() {
+    return this.http.get(`${this.BASE_URL}/users`)
+      .map((res) => res.json());
+  }
+
 
 }

@@ -3,12 +3,15 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const projectSchema = new Schema({
-  date: Date,
+  name: String,
+  link: String,
   starttime: String,
   description: String,
+  considerations: String,
   price: Number,
-  professional: { type: Schema.Types.ObjectId, ref: 'User' },
-  client: { type: Schema.Types.ObjectId, ref: 'User' },
+  date: Date,
+  // professional: { type: Schema.Types.ObjectId, ref: 'User' },
+  // client: { type: Schema.Types.ObjectId, ref: 'User' },
   status:{
     type: String,
     enum: ['AcceptedByProf','DeclinedByProf','SentByProf','AcceptedByClient','DeclinedByClient','SentByClient'],
@@ -18,4 +21,4 @@ const projectSchema = new Schema({
 
 
 const Project = mongoose.model("Project", projectSchema);
-module.exports = User;
+module.exports = Project;

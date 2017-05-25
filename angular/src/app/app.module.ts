@@ -12,7 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SessionService } from './services/session.service';
 import{routes} from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProjectComponent } from './project/project.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +25,10 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     ProfileComponent,
     SignupComponent,
     NavbarComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ProjectComponent
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
