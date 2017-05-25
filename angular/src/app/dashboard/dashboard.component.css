@@ -4,8 +4,13 @@
   border-radius: 0px;
 }
 
-nav i {
+nav .glyphicon-user {
   float:right;
+  font-size: 3rem;
+}
+
+nav .glyphicon-off {
+  float: left;
   font-size: 3rem;
 }
 
