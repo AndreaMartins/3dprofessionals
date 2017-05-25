@@ -75,10 +75,6 @@ export class EditprofileComponent implements OnInit {
         // this.user = userEdit
         this.router.navigate(['/profile']);
       });
-
-
-
-
   }
 
 
