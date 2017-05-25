@@ -1,5 +1,11 @@
-.upper-border {
-  height:50px;
+nav .glyphicon-home {
+  float:right;
+  font-size: 3rem;
+}
+
+nav .glyphicon-off {
+  float: left;
+  font-size: 3rem;
 }
 
 .profile-row {
