@@ -11,6 +11,7 @@ const Project  = require("../model/project");
 const User = require("../model/user");
 
 
+
 // const auth = require("../helpers/auth");
 // const flash    = require("connect-flash");
 // const upload = multer({ dest: 'public/uploads/' });
@@ -50,16 +51,30 @@ router.get('/project/:id', (req, res, next) => {
   });
 });
 
+/* post a new image */
+router.post('/project/:id', upload.single('file'), function(req, res) {
+  let project = req.params.id;
+  image = {
+    image: `/uploads/${req.file.filename}`
+  };
 
+  Project.findByIdAndUpdate(project, image, (err,project)=>{
+    if (err) res.status(401).json({message:"not found"});
+    else{
+      res.json(project)
+    }
+  });
+
+});
 
 router.post('/project', (req, res, next) => {
 const newProject= Project({
-  name: req.body.name,
-  link: req.body.link,
-  professional: req.body.professional,
-  description:req.body.description,
-  considerations:req.body.considerations,
-  client:req.body.client
+    name: req.body.name,
+    link: req.body.link,
+    professional: req.body.professional,
+    description:req.body.description,
+    considerations:req.body.considerations,
+    client:req.body.client
 });
 
 newProject.save((err,project)=>{

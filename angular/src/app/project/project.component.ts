@@ -14,6 +14,11 @@ export class ProjectComponent implements OnInit {
   projectId: number;
   client: Object = {};
   professional: Object = {};
+  user: Object = {};
+  uploader: FileUploader = new FileUploader({
+
+  });
+
 
   constructor(
     private session: SessionService,
@@ -25,23 +30,30 @@ export class ProjectComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.projectId = params['id'];
       this.getProject();
-
-    // let user = JSON.parse(localStorage.getItem("user"))
-    //   this.session.getUser(user._id)
-    //   .subscribe((user) => {
-    //       this.user = user
-
+      this.uploader.options.url = `http://localhost:3000/project/${this.projectId}`
+      let user = JSON.parse(localStorage.getItem("user"))
+      this.session.getUser(user._id)
+      .subscribe((user) => {
+        this.user = user
+      });
     });
   }
 
   getProject() {
     this.session.getProject(this.projectId)
-      .subscribe(result => {
-        console.log("project component ", result);
-        this.project = result;
-        this.client = result.client;
-        this.professional = result.professional;
-        console.log("this project", this.project)
+    .subscribe(result => {
+      console.log("project component ", result);
+      this.project = result;
+      this.client = result.client;
+      this.professional = result.professional;
+
+      console.log("this project", this.project)
     });
   }
+
+  submit() {
+    console.log(this.uploader)
+    this.uploader.uploadAll();
+  }
+
 }
