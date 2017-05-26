@@ -9,6 +9,7 @@ import { FileUploader } from "ng2-file-upload";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  iscolapse:Boolean = true;
   newProject = {
     name: '',
     link: '',
@@ -86,7 +87,10 @@ export class DashboardComponent implements OnInit {
 
   logout() {
   this.session.logout();
-  // this.router.navigate(['/login']);
+}
+
+goToProfile() {
+  this.router.navigate(['/profile']);
 }
 
 }
