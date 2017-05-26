@@ -1,16 +1,15 @@
 h4 {
   display: block;
-  color: white;
 }
 
 .profile-container {
-    display: flex;
+   display: flex;
    align-items: center;
    justify-content: center;
 }
 
-.profile {
-  background:rgba(0,0,0,0.4);
+.profile-info {
+  background-color: rgba(255, 255, 255, 0.4);
   width: 50%;
   padding: 2rem 0;
   margin-top: 4rem;
@@ -18,7 +17,7 @@ h4 {
 }
 
 .banner {
-  background-image: url("../../assets/images/stay.jpg");
+  background-image: url("../../assets/images/architecture.jpg");
 }
 
 .professionals-brand {

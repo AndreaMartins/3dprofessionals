@@ -1,3 +1,15 @@
+.edit-profile-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#edit-profile-form {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50%;
+  text-align: center;
+}
+
 .professionals-brand {
   color: black;
 }
@@ -18,4 +30,8 @@ nav .glyphicon-off {
 
 .upper-border {
   height: 50px;
+}
+
+.banner {
+  background-image: url("../../assets/images/architecture.jpg");
 }
