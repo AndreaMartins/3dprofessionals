@@ -1,1 +1,21 @@
-#success_message{ display: none;}
+.professionals-brand {
+  color: black;
+}
+
+a:hover, a:active {
+  text-decoration: none;
+}
+
+nav .glyphicon-home {
+  float:right;
+  font-size: 3rem;
+}
+
+nav .glyphicon-off {
+  float: left;
+  font-size: 3rem;
+}
+
+.upper-border {
+  height: 50px;
+}

@@ -1,1 +1,71 @@
-#success_message{ display: none;}
+html {
+color: black;
+}
+
+.container-home-custom{
+  padding: 0px;
+  border-radius: 0px;
+}
+
+#top-div {
+  background-image: url("../../assets/images/stay.jpg");
+  margin-bottom: 0;
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.back-black {
+background-color: #3B3B3B;
+color: gray;
+font-size: 10px;
+}
+
+a {
+  display: block;
+  margin-top: 1.5rem;
+  width: 80%;
+}
+#signfrm {
+  margin-top: 3rem;
+  margin:5% auto;
+  width: 25%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  min-width: 100%;
+  }
+  #signup-panel {
+  margin-top: 20px;
+}
+input {
+  margin-bottom: 1rem;
+}
+
+.sign-h{
+text-align:left;
+color:#317EAC;
+}
+#sign-icon{
+margin-right:5px;
+color:#317EAC;
+}
+
+#sign-frm-input-btn {
+  width: 50%;
+  margin: auto;
+  font-size: 20;
+  padding: 5px !important;
+}
+
+a {
+  margin-top: -2.7rem;
+  margin-left: 12rem;
+}

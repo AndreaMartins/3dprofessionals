@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectComponent } from './project/project.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { FileSelectDirective } from "ng2-file-upload";
+import {CollapseModule} from 'ngx-bootstrap';
+
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { FileSelectDirective } from "ng2-file-upload";
 
   imports: [
     BrowserModule,
+    CollapseModule.forRoot(),
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes)

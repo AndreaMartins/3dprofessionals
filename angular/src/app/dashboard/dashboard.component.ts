@@ -9,7 +9,11 @@ import { FileUploader } from "ng2-file-upload";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  user: Object = {};
+
+
+
+  iscolapse:Boolean = true;
+
   newProject = {
     name: '',
     link: '',
@@ -19,8 +23,31 @@ export class DashboardComponent implements OnInit {
     client:''
   };
 
+
 professionals: Object = {};
 client: Object ={};
+
+  user: Object = {};
+
+  uploader: FileUploader = new FileUploader({
+    url: `https://3dprofessionals.herokuapp.com/edit`,
+
+    authToken: `JWT ${this.session.token}`
+  });
+
+  newUser = {
+    _id: '',
+    name: '',
+    surname: '',
+    email: '',
+    role: '',
+    password: ''
+  };
+
+  feedback: string;
+
+  isAuth: boolean;
+
 
   constructor(
     private session: SessionService,
@@ -31,9 +58,8 @@ client: Object ={};
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
     .subscribe((user) => {
-        this.user = user
-      });
-
+      this.user = user
+    }); /* Ajax call */
 
 
    this.session.getProfessional()
@@ -42,6 +68,25 @@ client: Object ={};
       this.professionals = prof
          console.log("test", this.professionals)
    });
+
+
+
+    this.newUser._id = user._id
+    this.newUser.name = user.name
+    this.newUser.surname = user.surname
+    this.newUser.email = user.email
+    this.newUser.password = user.password
+    this.newUser.role = user.role
+
+
+    this.uploader.onSuccessItem = (item, user) => {
+      localStorage.removeItem("user")
+      localStorage.setItem("user", user)
+    };
+
+    this.uploader.onErrorItem = (item, response, status, headers) => {
+      this.feedback = JSON.parse(response).message;
+    };
 
   }
 
@@ -63,7 +108,10 @@ client: Object ={};
 
   logout() {
   this.session.logout();
-  // this.router.navigate(['/login']);
+}
+
+goToProfile() {
+  this.router.navigate(['/profile']);
 }
 
 }

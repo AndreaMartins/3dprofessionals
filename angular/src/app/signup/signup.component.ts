@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
-import { FileUploader } from "ng2-file-upload";
+// import { FileUploader } from "ng2-file-upload";
 
 @Component({
   selector: 'app-signup',
@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
     name: '',
     surname: ''
   };
+
 
   user: any;
   error: string;

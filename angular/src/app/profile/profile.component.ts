@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 user: Object = {};
+iscolapse:Boolean = true;
 
   constructor(
     private session: SessionService,
@@ -23,11 +24,20 @@ user: Object = {};
         this.user = user
       });
 
-}
 
-editProfile() {
-        this.router.navigate(['/editprofile']);
-  	}
+  }
 
+  editProfile() {
+          this.router.navigate(['/editprofile']);
+    	}
+
+
+  logout() {
+      this.session.logout();
+    }
+
+    goToDashboard() {
+      this.router.navigate(['/dashboard']);
+    }
 
 }
