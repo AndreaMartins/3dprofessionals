@@ -8,9 +8,8 @@ import { FileUploader } from "ng2-file-upload";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
 
-  user: Object = {};
+export class DashboardComponent implements OnInit {
 
   iscolapse:Boolean = true;
 
@@ -57,7 +56,9 @@ client: Object ={};
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
-
+    .subscribe((user) => {
+      this.user = user
+    }); /* Ajax call */
 
 
    this.session.getProfessional()
@@ -67,9 +68,7 @@ client: Object ={};
          console.log("test", this.professionals)
    });
 
-      .subscribe((user) => {
-        this.user = user
-      }); /* Ajax call */
+
 
     this.newUser._id = user._id
     this.newUser.name = user.name
