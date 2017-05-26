@@ -10,8 +10,8 @@ const projectSchema = new Schema({
   considerations: String,
   price: Number,
   date: Date,
-  // professional: { type: Schema.Types.ObjectId, ref: 'User' },
-  // client: { type: Schema.Types.ObjectId, ref: 'User' },
+  professional: { type: Schema.Types.ObjectId, ref: 'User' },
+  client: { type: Schema.Types.ObjectId, ref: 'User' },
   status:{
     type: String,
     enum: ['AcceptedByProf','DeclinedByProf','SentByProf','AcceptedByClient','DeclinedByClient','SentByClient'],

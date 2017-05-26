@@ -20,15 +20,17 @@ iscolapse:Boolean = true;
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
-      .subscribe((user) => {
+    .subscribe((user) => {
         this.user = user
       });
+
 
   }
 
   editProfile() {
           this.router.navigate(['/editprofile']);
     	}
+
 
   logout() {
       this.session.logout();

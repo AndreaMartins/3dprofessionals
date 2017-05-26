@@ -10,14 +10,10 @@ import { FileUploader } from "ng2-file-upload";
 })
 
 export class ProjectComponent implements OnInit {
-  project: any = {};
-
+  project: Object = {};
   projectId: number;
-
-  // users: Object = {}
-  // user: any;
-  // error: string;
-  // newProject: Object;
+  client: Object = {};
+  professional: Object = {};
 
   constructor(
     private session: SessionService,
@@ -29,6 +25,12 @@ export class ProjectComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.projectId = params['id'];
       this.getProject();
+
+    // let user = JSON.parse(localStorage.getItem("user"))
+    //   this.session.getUser(user._id)
+    //   .subscribe((user) => {
+    //       this.user = user
+
     });
   }
 
@@ -37,11 +39,9 @@ export class ProjectComponent implements OnInit {
       .subscribe(result => {
         console.log("project component ", result);
         this.project = result;
-        // if (result !== "") {
-        //     console.log("project component s", result);
-        // } else {
-        //     console.log('project component error',result);
-        // }
+        this.client = result.client;
+        this.professional = result.professional;
+        console.log("this project", this.project)
     });
   }
 }
