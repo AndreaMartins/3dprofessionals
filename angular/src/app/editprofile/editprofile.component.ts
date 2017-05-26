@@ -11,6 +11,7 @@ import { FileUploader } from "ng2-file-upload";
 export class EditprofileComponent implements OnInit {
 
   user: Object = {};
+  iscolapse:Boolean = true;
 
   uploader: FileUploader = new FileUploader({
     url: `https://localhost:3000/api/users`,
@@ -79,7 +80,14 @@ export class EditprofileComponent implements OnInit {
 
   logout() {
   this.session.logout();
-  this.router.navigate(['/login']);
+}
+
+goToProfile() {
+this.router.navigate(['/profile']);
+}
+
+goToDashboard() {
+  this.router.navigate(['/dashboard']);
 }
 
 }
