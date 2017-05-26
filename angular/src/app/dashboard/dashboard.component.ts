@@ -10,7 +10,7 @@ import { FileUploader } from "ng2-file-upload";
 })
 export class DashboardComponent implements OnInit {
 
-  user: Object = {};
+
 
   iscolapse:Boolean = true;
 
@@ -54,6 +54,14 @@ client: Object ={};
 
   ngOnInit() {
 
+    let user = JSON.parse(localStorage.getItem("user"))
+    this.session.getUser(user._id)
+    .subscribe((user) => {
+      this.user = user
+    }); /* Ajax call */
+
+
+
    this.session.getProfessional()
    .subscribe(prof => {
       console.log(prof)
@@ -61,11 +69,7 @@ client: Object ={};
          console.log("test", this.professionals)
    });
 
-   let user = JSON.parse(localStorage.getItem("user"))
-   this.session.getUser(user._id)
-      .subscribe((user) => {
-        this.user = user
-      }); /* Ajax call */
+
 
     this.newUser._id = user._id
     this.newUser.name = user.name
