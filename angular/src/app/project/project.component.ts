@@ -24,8 +24,13 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.projectId = params['id'];
-
       this.getProject();
+
+    // let user = JSON.parse(localStorage.getItem("user"))
+    //   this.session.getUser(user._id)
+    //   .subscribe((user) => {
+    //       this.user = user
+
     });
   }
 
