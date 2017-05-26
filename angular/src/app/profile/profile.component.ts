@@ -29,8 +29,8 @@ user: Object = {};
           this.router.navigate(['/editprofile']);
     	}
 
-  // logout() {
-  //     this.session.logout();
-  //   }
+  logout() {
+      this.session.logout();
+    }
 
 }
