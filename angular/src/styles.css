@@ -30,8 +30,8 @@ color: black;
 
 .title {
   margin-top: 20px;
-  color: 	#73B1B7;
-  text-shadow: 0 1px 3px #0f0f0f;
+  color: 	grey;
+  text-shadow: 0 2px 3px white;
 }
 
 .title-box {
