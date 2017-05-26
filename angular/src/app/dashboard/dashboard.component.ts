@@ -73,14 +73,13 @@ export class DashboardComponent implements OnInit {
   createProject(){
     this.session.createProject(this.newProject)
       .subscribe(result => {
+          console.log("result", result)
           if (result !== "") {
               // login successful
               console.log('result ok', result._id);
               this.router.navigate(['/project', result._id]);
           } else {
               console.log('result ko', result);
-                // login failed
-              // this.error = 'Username or password is incorrect';
           }
       });
   }
