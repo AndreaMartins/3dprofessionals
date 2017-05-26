@@ -34,5 +34,14 @@
     </fieldset>
   </form>
 
+  <div *ngIf="user.role === 'PROFESSIONAL'">
 
-    <!-- <label *ngIf="project.user.role === 'PROFESSIONAL'">Upload project</label> -->
+
+
+  <form>
+  <fieldset>
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+  </fieldset>
+  <button (click)="submit()"> submit </button>
+</form>
+  </div>

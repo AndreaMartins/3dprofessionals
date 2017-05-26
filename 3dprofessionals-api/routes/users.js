@@ -19,7 +19,6 @@ router.get('/user/:id', (req, res, next) => {
         next(err);
         return;
       }
-      console.log(user);
   res.json(user);
     });
 });
@@ -90,15 +89,15 @@ router.post("/update", (req, res, next) => {
 
     var userId = req.body._id.toString();
     userId = mongoose.Types.ObjectId(userId);
-    console.log("this is user ID server" ,userId);
+
 
     User.findByIdAndUpdate(userId, userInfo, (err, user)=>{
       if (err) {
-        console.log("GOT AN ERROR");
+  
         next(err);
       } else {
 
-        console.log("GOT UPDATED", user);
+
         res.json({user});
       }
     });
