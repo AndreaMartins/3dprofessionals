@@ -27,8 +27,6 @@ export class DashboardComponent implements OnInit {
 professionals: Object = {};
 client: Object ={};
 
-  user: Object = {};
-
   uploader: FileUploader = new FileUploader({
     url: `https://3dprofessionals.herokuapp.com/edit`,
 
@@ -55,11 +53,13 @@ client: Object ={};
   ) { }
 
   ngOnInit() {
+
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
     .subscribe((user) => {
       this.user = user
     }); /* Ajax call */
+
 
 
    this.session.getProfessional()
