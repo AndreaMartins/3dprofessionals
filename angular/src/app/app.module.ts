@@ -14,6 +14,7 @@ import{routes} from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectComponent } from './project/project.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import {CollapseModule} from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -28,9 +29,10 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     EditprofileComponent,
     ProjectComponent
   ],
-  
+
   imports: [
     BrowserModule,
+    CollapseModule.forRoot(),
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes)
