@@ -9,14 +9,23 @@ import { FileUploader } from "ng2-file-upload";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  user: Object = {};
+
   iscolapse:Boolean = true;
+
   newProject = {
     name: '',
     link: '',
     professional: '',
     description: '',
-    considerations:''
+    considerations:'',
+    client:''
   };
+
+
+professionals: Object = {};
+client: Object ={};
 
   user: Object = {};
 
@@ -39,6 +48,7 @@ export class DashboardComponent implements OnInit {
 
   isAuth: boolean;
 
+
   constructor(
     private session: SessionService,
     private router: Router
@@ -47,6 +57,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
+
+
+
+   this.session.getProfessional()
+   .subscribe(prof => {
+      console.log(prof)
+      this.professionals = prof
+         console.log("test", this.professionals)
+   });
+
       .subscribe((user) => {
         this.user = user
       }); /* Ajax call */
@@ -68,21 +88,22 @@ export class DashboardComponent implements OnInit {
       this.feedback = JSON.parse(response).message;
     };
 
-
   }
 
   createProject(){
+    var client = JSON.parse(localStorage.getItem("user"))
+    this.newProject.client = client._id
     this.session.createProject(this.newProject)
-      .subscribe(result => {
-          console.log("result", result)
-          if (result !== "") {
-              // login successful
-              console.log('result ok', result._id);
-              this.router.navigate(['/project', result._id]);
-          } else {
-              console.log('result ko', result);
-          }
-      });
+    .subscribe(result => {
+      console.log("result", result)
+      if (result !== "") {
+        // login successful
+        console.log('result ok', result._id);
+        this.router.navigate(['/project', result._id]);
+      } else {
+        console.log('result ko', result);
+      }
+    });
   }
 
   logout() {

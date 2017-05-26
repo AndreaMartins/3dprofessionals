@@ -16,7 +16,8 @@ const userSchema = new Schema({
      enum : ['CLIENT', 'PROFESSIONAL'],
      default : 'CLIENT'
    },
-  //  projects: String,
+   projects: [{ type: Schema.Types.ObjectId, ref: 'Project' },
+],
 
   });
 

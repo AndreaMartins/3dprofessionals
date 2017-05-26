@@ -100,39 +100,48 @@ export class SessionService {
         });
   }
 
+
 getUser(id){
   return this.http.get(`${this.BASE_URL}/user/`+id)
   .map((response: Response) => {
     return response.json();
-  });
-}
+    });
+  }
 
 
-createProject(project){
-  return this.http.post(`${this.BASE_URL}/project`, project)
-  .map((response: Response) => {
+//to get professional and pass the information
+  getProfessional(){
+    return this.http.get(`${this.BASE_URL}/users/professionals/`+ "PROFESSIONAL")
+    .map((response: Response) => {
     return response.json();
-  });
-}
+    });
+  }
 
-getProject(id){
-  return this.http.get(`${this.BASE_URL}/project/`+id)
-  .map((response: Response) => {
+  createProject(project){
+    return this.http.post(`${this.BASE_URL}/project`, project)
+    .map((response: Response) => {
     return response.json();
-  });
-}
-edit(user){
-  // console.log("service", user._id)
-  return this.http.post("http://localhost:3000/update", user )
-      .map((response: Response) => {
-        console.log("inside response")
-        response.json()
-      });
+    });
+  }
 
-}
+  getProject(id){
+    return this.http.get(`${this.BASE_URL}/project/`+id)
+    .map((response: Response) => {
+    return response.json();
+    });
+  }
 
 
-logout() {
+  edit(user){
+    return this.http.post("http://localhost:3000/update", user )
+    .map((response: Response) => {
+      console.log("inside response")
+      response.json()
+    });
+  }
+
+
+  logout() {
     // clear token remove user from local storage to log user out
     this.token = null;
     this.user = null;
@@ -147,6 +156,7 @@ logout() {
     return this.http.get(`${this.BASE_URL}/users`)
       .map((res) => res.json());
   }
+
 
 
 }
