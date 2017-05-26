@@ -1,95 +1,74 @@
 
-  <div class="container">
+  <div id="upper-border"></div>
+<div class="container-fluid container-home-custom">
 
-       <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-       <fieldset>
-
-
-      <!-- Text input-->
-
-      <div class="form-group">
-          <label class="col-md-4 control-label">Name</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="name" placeholder="Name" [(ngModel)]="newUser.name" class="form-control"  type="text">
-          </div>
-        </div>
-      </div>
-
-      <!-- Text input-->
-
-      <div class="form-group">
-        <label class="col-md-4 control-label" >Surname</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="surname" placeholder="Surname" [(ngModel)]="newUser.surname" class="form-control"  type="text">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-4 control-label">Role</label>
-        <div class="col-md-4 selectContainer">
-          <div class="input-group">
+<div id="top-div">
+	<div class="col-md-3 col-md-offset-4">
+		<div class="panel panel-default" id="signup-panel">
+		  <div class="panel-body">
+        <form action="" method="" id="signfrm" >
+      		<h3 class="sign-h"><span id="sign-icon"><i class="fa fa-sign-in"></i></span>Sign Up!</h3>
+      			<input name="surname" placeholder="Enter your first name" [(ngModel)]="newUser.name" class="form-control"  type="text">
+      			<input name="surname" placeholder="Enter your surname" [(ngModel)]="newUser.surname" class="form-control"  type="text">
+            <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
               <select name="role" class="form-control selectpicker" [(ngModel)]="newUser.role">
+                <option value="">Select your role</option>
                 <option selected="selected" value="CLIENT" >Client</option>
                 <option value="PROFESSIONAL">Professional</option>
             </select>
           </div>
-        </div>
-      </div>
+      			<input name="email" placeholder="Enter your e-mail ID" [(ngModel)]="newUser.email" class="form-control"  type="text">
+      			<input name="password" placeholder="Create your password" [(ngModel)]="newUser.password" class="form-control"  type="password">
+      			<button type="submit" class="btn btn-primary" (click)="signup()" >Submit</button>
+            <a href="/login">Log in</a>
+      		</form>
+				<!-- <div>{{error}}</div> -->
+		  </div>
+		</div>
+	</div>
+</div>
 
-      <!-- Text input-->
+<br><br>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-sm-6 footer-col">
+  <div class="logofooter">Recent post</div>
+  <p>Affogato hot chicken fingerstache pickled sriracha woke humblebrag stumptown, intelligentsia letterpress iceland raclette. Adaptogen poutine fashion axe leggings lo-fi trust fund.</p>
+  <p><i class="fa fa-map-pin"></i> #4, Liliha Street, Honolulu, Hawaii, United States</p>
+  <p><i class="fa fa-phone"></i> Phone : +1 808 999 999</p>
+  <p><i class="fa fa-envelope"></i> E-mail : info@3dprofessionals.com</p>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">Password</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="password" placeholder="Password" [(ngModel)]="newUser.password" class="form-control"  type="password">
-          </div>
-        </div>
-      </div>
-
-      <!-- Text input-->
-
-      <div class="form-group">
-        <label class="col-md-4 control-label" >Confirm Password</label>
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="confirm_password" placeholder="Confirm Password"  [(ngModel)]="newUser.password" class="form-control"  type="password">
-          </div>
-        </div>
-      </div>
-
-      <!-- Text input-->
-        <div class="form-group">
-        <label class="col-md-4 control-label">E-Mail</label>
-          <div class="col-md-4 inputGroupContainer">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email" placeholder="E-Mail Address" [(ngModel)]="newUser.email" class="form-control"  type="text">
-            </div>
-          </div>
-        </div>
-
-      <!-- Select Basic -->
-
-      <!-- Success message -->
-       <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-
-      <!-- Button -->
-        <div class="form-group">
-          <label class="col-md-4 control-label"></label>
-          <div class="col-md-4"><br>
-        <button (click)="signup()" type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-send"></span></button>
-          </div>
-        </div>
-
-         </fieldset>
-        </form>
-   </div>
+</div>
+<div class="col-md-3 col-sm-6 footer-col">
+  <h6 class="heading7">BLOG</h6>
+    Lorem ipsum
+    <hr>
+    Lorem ipsum dolor
+    <hr>
+    Lorem ipsum
+    <hr>
+    Lorem ipsum dolor
+    <hr>
+</div>
+<div class="col-md-3 col-sm-6 footer-col">
+  <h6 class="heading7">ARCHIVES</h6>
+  <div class="post">
+    <p>Raclette chambray neutra austin, normcore biodiesel 3 wolf moon heirloom selfies <span>May 30,2017</span></p>
+    <p>Lo-fi pabst man bun hashtag pinterest, hell of lumbersexual af seitan pop-up church-key tattooed jianbing <span>May 29,2017</span></p>
+    <p>Affogato brunch stumptown, butcher meh pok pok tattooed vice next level tacos church-key tofu swag <span>May 28,2017</span></p>
+  </div>
+</div>
+<div class="col-md-3 col-sm-6 footer-col">
+  <h6 class="heading7">Social Media</h6>
+  <ul class="footer-social">
+    <li><i class="fa fa-linkedin social-icon linked-in" aria-hidden="true"></i></li>
+    <li><i class="fa fa-facebook social-icon facebook" aria-hidden="true"></i></li>
+    <li><i class="fa fa-twitter social-icon twitter" aria-hidden="true"></i></li>
+    <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
+  </ul>
+</div>
+</div>
+</div>
+</footer>

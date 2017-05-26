@@ -60,6 +60,7 @@ export class SessionService {
           this.user = jwtDecode(token).user;
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('token', token );
+          localStorage.setItem('user', JSON.stringify(user) );
 
           this.isAuth = true;
           // return true to indicate successful login
@@ -99,10 +100,10 @@ export class SessionService {
         });
   }
 
-//not using yet
-  getUser(id){
-    return this.http.get(`${this.BASE_URL}/user/`+id)
-    .map((response: Response) => {
+
+getUser(id){
+  return this.http.get(`${this.BASE_URL}/user/`+id)
+  .map((response: Response) => {
     return response.json();
     });
   }

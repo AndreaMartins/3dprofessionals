@@ -1,4 +1,15 @@
+.dashboard-nav {
+  border-bottom: none;
+  background: white;
+}
 
+.professionals-brand {
+  color: black;
+}
+
+a:hover, a:active {
+  text-decoration: none;
+}
 .container-home-custom{
   padding: 0px;
   border-radius: 0px;
