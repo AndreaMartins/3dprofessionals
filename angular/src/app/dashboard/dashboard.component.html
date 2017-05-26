@@ -127,7 +127,15 @@
 
        </fieldset>
       </form>
+
+      <label>Projects sent :</label>
+      <div *ngFor="let project of user.projects" >
+       <br>
+       <button [routerLink]="['/project', project._id]" >{{project.name}}</button>
+       <br>
+     </div>
  </div>
+
 
 
 </body>

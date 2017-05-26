@@ -11,12 +11,17 @@ const mongoose = require('mongoose');
 //Get Current User
 router.get('/user/:id', (req, res, next) => {
   let user = req.params.id;
-  User.findOne({"_id":user},(err,user)=>{
-    if (err) res.status(401).json({message:"not found"});
-  else{
+    User
+    .findById({_id: user})
+    .populate("projects")
+    .exec((err, user) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      console.log(user);
   res.json(user);
-  }
-  });
+    });
 });
 
 
@@ -36,7 +41,7 @@ router.get('/users/clients/:clients', (req, res, next) => {
   User.find({"role":role},(err,users)=>{
     if (err) res.status(401).json({message:"not found"});
   else{
-  
+
   res.json({users});
   }
   });

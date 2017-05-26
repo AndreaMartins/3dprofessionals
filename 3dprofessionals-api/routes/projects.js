@@ -27,7 +27,6 @@ router.get("/",(req, res, next)=>{
 });
 
 
-
 //Get project
 router.get('/project/:id', (req, res, next) => {
   let project = req.params.id;
@@ -35,8 +34,6 @@ router.get('/project/:id', (req, res, next) => {
   Project.findById({_id:project},(err,project)=>{
     if (err) res.status(401).json({message:"not found"});
     else{
-
-
       Project
       .findById({_id: project._id})
       .populate("client")
@@ -63,67 +60,24 @@ const newProject= Project({
   description:req.body.description,
   considerations:req.body.considerations,
   client:req.body.client
-})
+});
+
 newProject.save((err,project)=>{
   if (err) res.status(400).json({messsage: err});
   else{
-    res.status(200).json(project)
+    User.findByIdAndUpdate({_id: project.client},{$push: { projects: project.id,}}, (err) => {
+        if (err) res.status(401).json({message:"not found"});
+        else{
+        User.findByIdAndUpdate({_id: project.professional},{$push: { projects: project.id,}}, (err) => {
+            if (err) res.status(401).json({message:"not found"});
+            else{
+              res.status(200).json(project)
+                }
+        });
+        }
+    });
   }
-})
-
-// newProject = {
-//   name: '',
-//   link: '',
-//   professional: '',
-//   description: '',
-//   considerations:''
-// };
-
-// const projectSchema = new Schema({
-//   name: String,
-//   link: String,
-//   starttime: String,
-//   description: String,
-//   considerations: String,
-//   price: Number,
-//   date: Date,
-//   professional: { type: Schema.Types.ObjectId, ref: 'User' },
-//   client: { type: Schema.Types.ObjectId, ref: 'User' },
-//   status:{
-//     type: String,
-//     enum: ['AcceptedByProf','DeclinedByProf','SentByProf','AcceptedByClient','DeclinedByClient','SentByClient'],
-//     default:'SentByClient'
-//   }
-// });
-
-//this should be later router.post('/edit', upload.single('profile_image'), (req, res, next) => {
-
-  // let projectInfo;
-  //
-  //   if (req.file === undefined) {
-  //       projectInfo = {
-  //         name: req.body.name,
-  //         link: req.body.link,
-  //         professional: req.body.professional,
-  //         description: req.body.description,
-  //         considerations: req.body.considerations,
-  //       };
-  //
-  //   } else {
-  //
-  //       projectInfo = {
-  //         name: req.body.name,
-  //         link: req.body.link,
-  //         professional: req.body.professional,
-  //         description: req.body.description,
-  //         considerations: req.body.considerations,
-  //   };
-  // }
-  //
-  // Project.save(req.project._id, projectInfo, (err, user)=>{
-  //   res.redirect('/');
-
-  // });
+});
 });
 
 

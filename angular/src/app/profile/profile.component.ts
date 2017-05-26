@@ -19,15 +19,10 @@ user: Object = {};
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("user"))
     this.session.getUser(user._id)
-      .subscribe((user) => {
+    .subscribe((user) => {
         this.user = user
       });
 
-
-//   logout() {
-//   this.session.logout();
-//   // this.router.navigate(['/login']);
-// }
 }
 
 editProfile() {

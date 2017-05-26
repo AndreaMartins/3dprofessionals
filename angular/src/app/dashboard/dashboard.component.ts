@@ -9,6 +9,7 @@ import { FileUploader } from "ng2-file-upload";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  user: Object = {};
   newProject = {
     name: '',
     link: '',
@@ -27,11 +28,13 @@ client: Object ={};
   ) { }
 
   ngOnInit() {
-// this.session.getClient()
-// .subscribe(client=>{
-//   this.clients= client
-//   console.log("test",this.clients)
-// });
+    let user = JSON.parse(localStorage.getItem("user"))
+    this.session.getUser(user._id)
+    .subscribe((user) => {
+        this.user = user
+      });
+
+
 
    this.session.getProfessional()
    .subscribe(prof => {
@@ -46,16 +49,16 @@ client: Object ={};
     var client = JSON.parse(localStorage.getItem("user"))
     this.newProject.client = client._id
     this.session.createProject(this.newProject)
-      .subscribe(result => {
-          console.log("result", result)
-          if (result !== "") {
-              // login successful
-              console.log('result ok', result._id);
-              this.router.navigate(['/project', result._id]);
-          } else {
-              console.log('result ko', result);
-          }
-      });
+    .subscribe(result => {
+      console.log("result", result)
+      if (result !== "") {
+        // login successful
+        console.log('result ok', result._id);
+        this.router.navigate(['/project', result._id]);
+      } else {
+        console.log('result ko', result);
+      }
+    });
   }
 
   logout() {

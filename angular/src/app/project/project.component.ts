@@ -14,10 +14,6 @@ export class ProjectComponent implements OnInit {
   projectId: number;
   client: Object = {};
   professional: Object = {};
-  // users: Object = {}
-  // user: any;
-  // error: string;
-  // newProject: Object;
 
   constructor(
     private session: SessionService,
