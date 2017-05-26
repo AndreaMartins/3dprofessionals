@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 user: Object = {};
+iscolapse:Boolean = true;
 
   constructor(
     private session: SessionService,
@@ -31,6 +32,10 @@ user: Object = {};
 
   logout() {
       this.session.logout();
+    }
+
+    goToDashboard() {
+      this.router.navigate(['/dashboard']);
     }
 
 }
