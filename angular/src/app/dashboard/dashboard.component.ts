@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
 professionals: Object = {};
 client: Object ={};
+user: Object ={};
 
   uploader: FileUploader = new FileUploader({
     url: `https://3dprofessionals.herokuapp.com/edit`,
