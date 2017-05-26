@@ -38,6 +38,10 @@ a {
   margin-top: .6rem;
 }
 
+.footer-ul li a {
+  display: block;
+}
+
 /*MEDIA QUERIES*/
 @media (max-width: 1000px) {
 
