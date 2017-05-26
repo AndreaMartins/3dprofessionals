@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default dashboard-nav">
-<div class="container ">
+<div class="container">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click) = "iscolapse= !iscolapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -24,19 +24,17 @@
 </nav>
 <div class="container-fluid">
       <div class="row profile-row">
-        <div class="col-md-4" >
-          <div class="panel-custom">
-
-              <!-- <img class="img-responsive center-custom" alt="profile image" [src]='user.profilePic'> -->
-                      <div class="center-user-info">
-                        <h4>Name: {{user.name}}</h4>
-                        <h4>Surname: {{user.surname}}</h4>
-                        <h4>Email: {{user.email}}</h4>
-                        <h4>Role: {{user.role}}</h4>
-                      </div>
-          </div><!--panel-custom-->
-          <button class="btn btn-primary center-user-info" (click)="editProfile()"> Edit profile </button>
-    </div><!-- col-md-4 -->
+        <div class="jumbotron banner">
+          <div class="row profile-container">
+            <div class="col-md-12 profile text-center">
+                <h4>Name: {{user.name}}</h4>
+                <h4>Surname: {{user.surname}}</h4>
+                <h4>Email: {{user.email}}</h4>
+                <h4>Role: {{user.role}}</h4>
+              <button class="btn btn-primary" (click)="editProfile()"> Edit profile </button>
+            </div>
+          </div>
+        </div>
   </div><!-- row -->
 </div><!-- container -->
 
