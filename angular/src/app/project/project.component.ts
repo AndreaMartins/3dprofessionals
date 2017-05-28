@@ -10,6 +10,7 @@ import { FileUploader } from "ng2-file-upload";
 })
 
 export class ProjectComponent implements OnInit {
+  iscolapse:Boolean = true;
   project: Object = {};
   projectId: number;
   client: Object = {};
@@ -55,5 +56,13 @@ export class ProjectComponent implements OnInit {
     console.log(this.uploader)
     this.uploader.uploadAll();
   }
+
+  goToDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
+
+  logout() {
+      this.session.logout();
+    }
 
 }

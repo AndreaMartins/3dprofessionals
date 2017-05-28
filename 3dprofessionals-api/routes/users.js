@@ -93,7 +93,7 @@ router.post("/update", (req, res, next) => {
 
     User.findByIdAndUpdate(userId, userInfo, (err, user)=>{
       if (err) {
-  
+
         next(err);
       } else {
 
