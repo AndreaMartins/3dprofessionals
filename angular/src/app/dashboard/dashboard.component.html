@@ -116,17 +116,19 @@
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4"><br>
 
-   <button (click)="createProject()" type="submit" class="btn btn-primary project-button" > Submit</button>
+   <button (click)="createProject()" type="submit" class="btn btn-primary" > Submit</button>
         </div>
       </div>
      </fieldset>
   </form>
 
-      <label *ngIf="user.role === 'CLIENT'" >Projects sent :</label>
-      <label *ngIf="user.role === 'PROFESSIONAL'" >Projects received :</label>
-      <div *ngFor="let project of user.projects" >
+      <div class="project-name-div">
+        <label *ngIf="user.role === 'CLIENT'" >Projects sent :</label>
+        <label *ngIf="user.role === 'PROFESSIONAL'" >Projects received :</label>
+      </div>
+      <div class="project-buttons-div col-md-3 col-sm-6" *ngFor="let project of user.projects" >
        <br>
-       <button [routerLink]="['/project', project._id]" >{{project.name}}</button>
+       <button class="project-button" [routerLink]="['/project', project._id]" >{{project.name}}</button>
        <br>
      </div>
  </div>

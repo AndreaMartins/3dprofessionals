@@ -102,19 +102,6 @@ padding-top: 2%;
   text-shadow: 3px 1px 5px rgba(150, 150, 150, 1);
 }
 
-
-button {
-  padding: 5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.project-button {
-  padding: 1rem;
-  text-transform: none;
-  font-weight: normal;
-}
-
 .select-prof-div {
   border: 1px solid #C4C4C4;
   border-radius: 4px;
@@ -122,4 +109,21 @@ button {
 .select-prof {
   padding: 1rem;
   color: #606060;
+}
+
+.project-name-div label {
+  padding-bottom: 1rem;
+  color: #007BB6;
+}
+
+.project-button {
+  padding: 5rem;
+  font-weight: bold;
+  width: 100%;
+  text-transform: uppercase;
+  background: rgba(179, 188, 199, 0.3);
+  border-style:ridge;
+  border-color: #007BB6;
+  color: #1DA1F2;
+  box-shadow: 2px 2px 5px #888888;
 }
