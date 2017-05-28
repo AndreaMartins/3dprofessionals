@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default dashboard-nav">
-<div class="container ">
+<div class="container">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click) = "iscolapse= !iscolapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -40,6 +40,7 @@
 
 <div class="container" >
 
+ <div class="form-container">
   <form *ngIf="user.role === 'CLIENT'" class="well form-horizontal" action=" " method="post"  id="contact_form">
      <fieldset>
     <!-- Text input-->
@@ -122,6 +123,7 @@
      </fieldset>
   </form>
 
+    <section class="projects col-md-12">
       <div class="project-name-div">
         <label *ngIf="user.role === 'CLIENT'" >Projects sent :</label>
         <label *ngIf="user.role === 'PROFESSIONAL'" >Projects received :</label>
@@ -131,6 +133,8 @@
        <button class="project-button" [routerLink]="['/project', project._id]" >{{project.name}}</button>
        <br>
      </div>
+    </section>
+    </div>
  </div>
 
 

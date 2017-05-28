@@ -64,42 +64,8 @@ h2 a:hover, h2 a:active {
   color: white;
 }
 
-.center-form{
-  text-shadow: 0 1px 3px #0f0f0f;
-
-}
-
-.icon-custom{
-  width: 35px;
-  height: auto;
-}
-
-.input-lg-custom{
-  width: 620px;
-}
-
-.btn-custom{
-  width: 100%;
-  height:50px;
-}
-
-.back-grey{
-  background-color: #ffffff;
-  color: black;
-  padding-bottom: 2%;
-}
-
-
-.back-black {
-background-color: #3B3B3B;
-color: gray;
-font-size: 10px;
-padding-top: 2%;
-}
-
-.label-text{
-  color: black;
-  text-shadow: 3px 1px 5px rgba(150, 150, 150, 1);
+form {
+  margin-top: 1rem;
 }
 
 .select-prof-div {
@@ -109,6 +75,14 @@ padding-top: 2%;
 .select-prof {
   padding: 1rem;
   color: #606060;
+}
+
+.projects {
+  border: 1px solid #E8E8E8;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  background: #F5F5F5;
 }
 
 .project-name-div label {
@@ -123,7 +97,8 @@ padding-top: 2%;
   text-transform: uppercase;
   background: rgba(179, 188, 199, 0.3);
   border-style:ridge;
-  border-color: #007BB6;
-  color: #1DA1F2;
+  border-color: #E8E8E8;
+  color: #3B5998;
   box-shadow: 2px 2px 5px #888888;
+  margin-bottom: 2rem;
 }
