@@ -102,4 +102,15 @@ padding-top: 2%;
   text-shadow: 3px 1px 5px rgba(150, 150, 150, 1);
 }
 
-#success_message{ display: none;}
+
+button {
+  padding: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.project-button {
+  padding: 1rem;
+  text-transform: none;
+  font-weight: normal;
+}
