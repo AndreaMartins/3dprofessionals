@@ -114,3 +114,12 @@ button {
   text-transform: none;
   font-weight: normal;
 }
+
+.select-prof-div {
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
+}
+.select-prof {
+  padding: 1rem;
+  color: #606060;
+}

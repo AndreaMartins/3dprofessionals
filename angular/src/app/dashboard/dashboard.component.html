@@ -45,11 +45,11 @@
     <!-- Text input-->
 
     <div class="form-group">
-        <label class="col-md-4 control-label">Name of the project</label>
+        <label class="col-md-4 control-label">Name of new project</label>
       <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-          <input  name="name" placeholder="Name of the project" [(ngModel)]="newProject.name" class="form-control"  type="text">
+          <input  name="name" placeholder="Name of your new project" [(ngModel)]="newProject.name" class="form-control"  type="text">
         </div>
       </div>
     </div>
@@ -67,12 +67,13 @@
     <div class="form-group">
       <label class="col-md-4 control-label">Select your professional</label>
       <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <div *ngFor="let professional of professionals.users" >
-            <select  name="role" [(ngModel)]="newProject.professional" class="form-control selectpicker">
+        <div class="select-prof-div">
+            <!-- <span class="input-group-addon"></span> -->
+            <div *ngFor="let professional of professionals.users" class="btn-group select-prof" >
+              <input type="radio" name="role" [(ngModel)]="newProject.professional" value="{{professional._id}}"> {{professional.name}}<br>
+            <!-- <select  name="role" [(ngModel)]="newProject.professional" class="form-control selectpicker">
               <option value="{{professional._id}}">{{professional.name}}</option>
-          </select>
+          </select> -->
         </div>
         </div>
       </div>
