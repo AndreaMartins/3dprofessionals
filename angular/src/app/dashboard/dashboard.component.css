@@ -78,6 +78,7 @@ form {
 }
 
 .projects {
+  margin-top: 1rem;
   border: 1px solid #E8E8E8;
   border-radius: 4px;
   height: 100%;
@@ -101,4 +102,5 @@ form {
   color: #3B5998;
   box-shadow: 2px 2px 5px #888888;
   margin-bottom: 2rem;
+  border-radius: 6px;
 }
