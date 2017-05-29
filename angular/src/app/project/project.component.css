@@ -82,6 +82,7 @@ label {
 
 .current-image-label {
   text-align: center;
+  padding-bottom: 1rem;
 }
 
 .uploader-container {
