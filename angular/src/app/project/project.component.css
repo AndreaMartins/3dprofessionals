@@ -71,5 +71,30 @@ label {
 }
 
 #lower-banner {
-  margin-top: -32rem;
+  margin-top: -34rem;
+}
+.current-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.current-image-label {
+  text-align: center;
+}
+
+.uploader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-image-label {
+  text-align: center;
+}
+
+.project-image {
+  width: 40%;
+  margin-left: 1rem;
 }
