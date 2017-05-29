@@ -29,7 +29,7 @@ error: string;
   				        .subscribe(result => {
   				            if (result === true) {
   			                // login successful
-                          console.log("test",result);
+                          // console.log("test",result);
   			                this.router.navigate(['/dashboard']);
   			         			} else {
   			                // login failed

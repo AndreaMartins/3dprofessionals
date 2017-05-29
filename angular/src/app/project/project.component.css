@@ -1,0 +1,75 @@
+.dashboard-nav {
+  border-bottom: none;
+  background: white;
+}
+
+.professionals-brand {
+  color: black;
+}
+
+.banner {
+  background-image: url("../../assets/images/architecture.jpg");
+  margin-bottom: 0;
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+
+label {
+  text-align: center;
+}
+
+#project_form{
+  margin-top: -29rem;
+  border-bottom: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  width: 60%;
+}
+
+.project-form-bottom {
+  text-align: center;
+}
+
+.uploader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uploader {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.submit-button-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.project-submit-button {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#lower-banner {
+  margin-top: -32rem;
+}

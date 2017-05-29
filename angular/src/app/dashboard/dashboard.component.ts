@@ -67,9 +67,9 @@ user: Object ={};
 
    this.session.getProfessional()
    .subscribe(prof => {
-      console.log(prof)
+      // console.log(prof)
       this.professionals = prof
-         console.log("test", this.professionals)
+        //  console.log("test", this.professionals)
    });
 
 

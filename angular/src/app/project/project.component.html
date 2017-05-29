@@ -1,35 +1,62 @@
+<nav class="navbar navbar-default dashboard-nav">
+<div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click) = "iscolapse= !iscolapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand professionals-brand"><span>3dprofessionals</span></a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" [collapse]="iscolapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="!this.session.isAuth"><a [routerLink]="['login']">Login</a></li>
+      <li *ngIf="this.session.isAuth"><a (click)="goToDashboard()">Dashboard</a></li>
+      <li *ngIf="this.session.isAuth"><a (click)="logout()">Logout</a></li>
+      <li *ngIf="!this.session.isAuth"><a [routerLink]="['signup']">Signup</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container -->
+</nav>
+
+<section class="banner"></section>
+<main>
+  <section class="project-form-container">
+    <form class="well form-horizontal" action=" " method="post"  id="project_form">
      <fieldset>
 
     <div class="form-group">
-        <label class="col-md-4 control-label">Name of the project</label>
-        <label class="col-md-4 control-label">{{project.name}}</label>
+        <label class="control-label label-title">Name of the project : </label>
+        <label class="control-label">{{project.name}}</label>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Link with files</label>
-      <label class="col-md-4 control-label" >{{project.link}}</label>
+      <label class=" control-label label-title" >Link with files : </label>
+      <label class="control-label" >{{project.link}}</label>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >professional</label>
-      <label class="col-md-4 control-label">{{professional.name}}</label>
+      <label class=" control-label label-title" >Professional : </label>
+      <label class=" control-label">{{professional.name}}</label>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" >Client</label>
-      <label class="col-md-4 control-label">{{client.name}}</label>
+      <label class=" control-label label-title" >Client : </label>
+      <label class=" control-label">{{client.name}}</label>
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label">Description</label>
-        <label class="col-md-4 control-label">{{project.description}}</label>
+        <label class="control-label label-title">Description : </label>
+        <label class=" control-label">{{project.description}}</label>
     </div>
 
     <div class="form-group">
-        <label  class="col-md-4 control-label">Special considerations</label>
-        <label  class="col-md-4 control-label">{{project.considerations}}</label>
+        <label  class="control-label label-title">Special considerations : </label>
+        <label  class="control-label">{{project.considerations}}</label>
     </div>
 
     <div class="form-group">
@@ -38,35 +65,35 @@
     </div>
 
     </fieldset>
+
+    <fieldset class="uploader-container">
+      <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" />
+    </fieldset>
+    <div class="submit-button-container">
+      <button (click)="submit()" class="btn btn-primary project-submit-button"> Submit </button>
+    </div>
   </form>
 
-  <div *ngIf="user.role === 'PROFESSIONAL'">
+  <div id="professional-form" *ngIf="user.role === 'PROFESSIONAL'">
 
 
 
 
-  <form>
-  <fieldset>
-    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+  <!-- <form id="project-form-bottom">
+  <fieldset class="uploader-container">
+    <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" />
   </fieldset>
-  <button (click)="submit()"> submit </button>
-</form>
+  <div class="submit-button-container">
+    <button (click)="submit()" class="btn btn-primary project-submit-button"> Submit </button>
   </div>
+</form> -->
+  </div>
+</section>
+</main>
+
+<section class="banner" id="lower-banner"></section>
 
     <!-- <label *ngIf="project.user.role === 'PROFESSIONAL'">Upload project</label> -->
-
- <br><br>
- <footer>
- <div class="container">
- <div class="row">
- <div class="col-md-3 col-sm-6 footer-col">
-   <div class="logofooter">Recent post</div>
-   <p>Affogato hot chicken fingerstache pickled sriracha woke humblebrag stumptown, intelligentsia letterpress iceland raclette. Adaptogen poutine fashion axe leggings lo-fi trust fund.</p>
-   <p><i class="fa fa-map-pin"></i> #4, Liliha Street, Honolulu, Hawaii, United States</p>
-   <p><i class="fa fa-phone"></i> Phone : +1 808 999 999</p>
-   <p><i class="fa fa-envelope"></i> E-mail : info@3dprofessionals.com</p>
-
-   <br><br>
    <footer>
    <div class="container">
    <div class="row">
