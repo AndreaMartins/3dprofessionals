@@ -10,7 +10,9 @@ const projectSchema = new Schema({
   considerations: String,
   price: Number,
   date: Date,
-  image: String,
+  image: {
+    type: String, default: ''
+  },
   professional: { type: Schema.Types.ObjectId, ref: 'User' },
   client: { type: Schema.Types.ObjectId, ref: 'User' },
   status:{
