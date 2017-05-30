@@ -40,6 +40,7 @@ user: Object ={};
     name: '',
     surname: '',
     email: '',
+    fee: '',
     role: '',
     password: ''
   };
