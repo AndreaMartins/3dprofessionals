@@ -31,14 +31,20 @@
                 <h4>Surname: {{user.surname}}</h4>
                 <h4>Email: {{user.email}}</h4>
                 <h4>Role: {{user.role}}</h4>
+
+                <div *ngIf="user.profilePic!==''" class="form-group current-image-container">
+                  <div class="current-image-label">
+                    <label  class="control-label">Photo : </label>
+                  </div>
+                    <img  class="img-responsive user-image" src= "http://localhost:3000/{{user.profilePic}}">
+                </div>
+
               <button class="btn btn-primary" (click)="editProfile()"> Edit profile </button>
             </div>
           </div>
         </div>
   </div><!-- row -->
 </div><!-- container -->
-
-<br><br>
 <footer>
 <div class="container">
 <div class="row">

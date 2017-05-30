@@ -1,3 +1,12 @@
+.dashboard-nav {
+  border-bottom: none;
+  background: white;
+}
+
+.main-container {
+  margin-bottom: -4rem;
+}
+
 .edit-profile-container {
    display: flex;
    align-items: center;
@@ -5,9 +14,10 @@
 }
 
 #edit-profile-form {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   width: 50%;
   text-align: center;
+  border-radius: 6px;
 }
 
 .professionals-brand {
@@ -34,4 +44,28 @@ nav .glyphicon-off {
 
 .banner {
   background-image: url("../../assets/images/architecture.jpg");
+  height: 150%;
+}
+
+.uploader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.upload-image-label, .uploader-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#file-upload {
+  display: none;
+}
+
+#save-photo {
+  margin-top: 1rem;
 }
