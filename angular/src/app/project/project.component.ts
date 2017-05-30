@@ -59,7 +59,6 @@ export class ProjectComponent implements OnInit {
   submit() {
     console.log(this.uploader)
     this.uploader.uploadAll();
-    this.router.navigate(['/dashboard']);
   }
 
   goToDashboard() {

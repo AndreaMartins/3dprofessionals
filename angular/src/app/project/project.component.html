@@ -3,7 +3,6 @@
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click) = "iscolapse= !iscolapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -59,38 +58,45 @@
         <label  class="control-label">{{project.considerations}}</label>
     </div>
 
-    <div *ngIf="project.image!==''" class="form-group current-image-container">
+
+    <div class="form-group">
+        <label  class="control-label label-title">Changes to update :</label>
+        <label  class="control-label">{{project.changeDescription}}</label>
+    </div>
+
+
+    <div *ngIf="project.image!== ''"  class="form-group current-image-container">
       <div class="current-image-label">
         <label  class="control-label">Current image : </label>
       </div>
         <img  class="img-responsive project-image" src= "http://localhost:3000/{{project.image}}">
+
     </div>
 
     </fieldset>
 
     <fieldset class="uploader-container">
-      <label class="control-label upload-image-label">Upload image : </label>
-      <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" />
+
+      <label *ngIf="user.role === 'PROFESSIONAL'" class="control-label upload-image-label">Upload image : </label>
+      <input *ngIf="user.role === 'PROFESSIONAL'" type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" />
+
     </fieldset>
     <div class="submit-button-container">
-      <button (click)="submit()" class="btn btn-primary project-submit-button"> Submit </button>
+      <button *ngIf="user.role === 'PROFESSIONAL'" (click)="submit()" class="btn btn-primary project-submit-button"> Upload Image </button>
     </div>
+
+    <div class="submit-button-container">
+      <button *ngIf="user.role === 'CLIENT'"  class="btn btn-primary project-submit-button"> ACCEPT </button>
+    </div>
+
+    <div class="submit-button-container">
+      <div class="input-group">
+      <input *ngIf="user.role === 'CLIENT'" name="changeDescription" placeholder="ask for changes" [(ngModel)]="newProject.changeDescription"  class="form-control"  type="text">
+      </div>
+      <button (click)="getProject()" *ngIf="user.role === 'CLIENT'"  class="btn btn-primary project-submit-button"  > ASK FOR CHANGES</button>
+    </div>
+
   </form>
-
-  <div id="professional-form" *ngIf="user.role === 'PROFESSIONAL'">
-
-
-
-
-  <!-- <form id="project-form-bottom">
-  <fieldset class="uploader-container">
-    <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" />
-  </fieldset>
-  <div class="submit-button-container">
-    <button (click)="submit()" class="btn btn-primary project-submit-button"> Submit </button>
-  </div>
-</form> -->
-  </div>
 </section>
 </main>
 
