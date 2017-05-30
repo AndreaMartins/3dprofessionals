@@ -140,6 +140,15 @@ getUser(id){
     });
   }
 
+//ask changes to update model, delete image an render in the browser
+askChanges(){
+  return this.http.post(`${this.BASE_URL}/project`, this.project )
+  .map((response: Response) => {
+    console.log("inside response")
+    response.json()
+  });
+
+}
 
   logout() {
     // clear token remove user from local storage to log user out

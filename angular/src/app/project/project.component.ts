@@ -10,14 +10,19 @@ import { FileUploader } from "ng2-file-upload";
 })
 
 export class ProjectComponent implements OnInit {
+
+  newProject = {
+    changeDescription: '',
+  };
+
   iscolapse:Boolean = true;
   project: Object = {};
   projectId: number;
   client: Object = {};
   professional: Object = {};
   user: Object = {};
+  changeDescription: string;
   uploader: FileUploader = new FileUploader({
-
   });
 
 
@@ -48,6 +53,7 @@ export class ProjectComponent implements OnInit {
       this.client = result.client;
       this.professional = result.professional;
 
+
       console.log("this project", this.project)
     });
   }
@@ -63,6 +69,19 @@ export class ProjectComponent implements OnInit {
 
   logout() {
       this.session.logout();
-    }
+  }
 
-}
+  askChanges(){
+    this.session.askChanges(this.projectId)
+    .subscribe(result => {
+      this.project = result;
+      this.newProject.changeDescription = result.changeDescription
+    });
+  }
+  }
+    // first create a method to post to the server
+    // when posting you want to pass the id of the project and the object newProject
+    // on the backend you create a post that picksup object and id, create a new object that has image path set to
+    // "", and the value of newProject
+    // Project.FindByIdAndUpdate (with the id that you pass from angular, and pass the object)
+    // send back the adjusted project

@@ -74,7 +74,8 @@ const newProject= Project({
     professional: req.body.professional,
     description:req.body.description,
     considerations:req.body.considerations,
-    client:req.body.client
+    client:req.body.client,
+    changeDescription: req.body.changeDescription
 });
 
 newProject.save((err,project)=>{

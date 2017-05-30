@@ -7,6 +7,7 @@ const projectSchema = new Schema({
   link: String,
   starttime: String,
   description: String,
+  changeDescription: String,
   considerations: String,
   price: Number,
   date: Date,
