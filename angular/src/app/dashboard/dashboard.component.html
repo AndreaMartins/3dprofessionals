@@ -71,7 +71,8 @@
         <div class="select-prof-div">
             <!-- <span class="input-group-addon"></span> -->
             <div *ngFor="let professional of professionals.users" class="btn-group select-prof" >
-              <input type="radio" name="role" [(ngModel)]="newProject.professional" value="{{professional._id}}"> {{professional.name}}<br>
+              <p *ngIf="professional.fee == 0"><input  type="radio" name="role" [(ngModel)]="newProject.professional" value="{{professional._id}}"> {{professional.name}}</p><br>
+              <p *ngIf="professional.fee != 0"><input  type="radio" name="role" [(ngModel)]="newProject.professional" value="{{professional._id}}"> {{professional.name}} ({{professional.fee}} €)</p><br>
             <!-- <select  name="role" [(ngModel)]="newProject.professional" class="form-control selectpicker">
               <option value="{{professional._id}}">{{professional.name}}</option>
           </select> -->
