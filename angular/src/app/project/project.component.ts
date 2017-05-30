@@ -40,7 +40,7 @@ export class ProjectComponent implements OnInit {
       let user = JSON.parse(localStorage.getItem("user"))
       this.session.getUser(user._id)
       .subscribe((user) => {
-        this.user = user
+      this.user = user
       });
     });
   }
@@ -48,13 +48,11 @@ export class ProjectComponent implements OnInit {
   getProject() {
     this.session.getProject(this.projectId)
     .subscribe(result => {
-      console.log("project component ", result);
-      this.project = result;
-      this.client = result.client;
-      this.professional = result.professional;
-
-
-      console.log("this project", this.project)
+    console.log("project component ", result);
+    this.project = result;
+    this.client = result.client;
+    this.professional = result.professional;
+    console.log("this project", this.project)
     });
   }
 
@@ -69,14 +67,13 @@ export class ProjectComponent implements OnInit {
   }
 
   logout() {
-      this.session.logout();
+    this.session.logout();
   }
 
   askChanges(){
-    this.session.askChanges(this.projectId)
+    this.session.editProject(this.projectId, this.newProject)
     .subscribe(result => {
-      this.project = result;
-      this.newProject.changeDescription = result.changeDescription
+      this.project = result
     });
   }
 

@@ -36,7 +36,7 @@ export class SessionService {
       this.user = jwtDecode(this.token).user;
       this.isAuth = true;
       return true;
-    }
+      }
     // not logged in so redirect to login page
     this.router.navigate(['/login']);
     this.isAuth = false;
@@ -101,9 +101,9 @@ export class SessionService {
   }
 
 
-getUser(id){
-  return this.http.get(`${this.BASE_URL}/user/`+id)
-  .map((response: Response) => {
+  getUser(id){
+    return this.http.get(`${this.BASE_URL}/user/`+id)
+    .map((response: Response) => {
     return response.json();
     });
   }
@@ -141,13 +141,12 @@ getUser(id){
   }
 
 //ask changes to update model, delete image an render in the browser
-askChanges(){
-  return this.http.post(`${this.BASE_URL}/project`, this.project )
-  .map((response: Response) => {
-    console.log("inside response")
-    response.json()
-  });
-
+  editProject(id, project){
+    return this.http.post(`${this.BASE_URL}/project/`+ id, project)
+    .map((response: Response) => {
+      console.log("inside response", response)
+    return response.json()
+    });
 }
 
   logout() {
@@ -165,7 +164,5 @@ askChanges(){
     return this.http.get(`${this.BASE_URL}/users`)
       .map((res) => res.json());
   }
-
-
 
 }
