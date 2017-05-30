@@ -53,24 +53,15 @@ router.get('/project/:id', (req, res, next) => {
 
 /* post a new image */
 router.post('/project/:id', upload.single('file'), function(req, res) {
-  console.log("req", req.body);
   let project = req.params.id;
-  if(req.body.changeDescription === "") {
-    image = {
-      image: `/uploads/${req.file.filename}`
-    };
-  } else {
-    image = {
-      image: null,
-      changeDescription: req.body.changeDescription
-    };
-  }
+  image = {
+    image: `/uploads/${req.file.filename}`
+  };
 
-  Project.findByIdAndUpdate(project, image, {new: true}, (err,project)=>{
+  Project.findByIdAndUpdate(project, image, (err,project)=>{
     if (err) res.status(401).json({message:"not found"});
     else{
-      console.log("after changin", project);
-      return res.json(project)
+      res.json(project)
     }
   });
 
