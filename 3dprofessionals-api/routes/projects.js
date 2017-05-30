@@ -51,7 +51,7 @@ router.get('/project/:id', (req, res, next) => {
   });
 });
 
-/* post a new image */
+// /* post a new image */
 router.post('/project/:id', upload.single('file'), function(req, res) {
   let project = req.params.id;
   image = {
@@ -67,6 +67,28 @@ router.post('/project/:id', upload.single('file'), function(req, res) {
 
 });
 
+/* post a new image */
+router.post('/changeRequest/:id', upload.single('file'), function(req, res) {
+  console.log("req", req.body);
+
+  let projectId = req.params.id;
+  Project.findById(projectId, (err,project)=>{
+    if (req.body.changeDescription !== "") {
+      project.changeDescription = req.body.changeDescription
+
+      project.save((err)=>{
+        if (err) {
+          throw err
+        } else {
+          res.json(project)
+        }
+      })
+    } else {
+      res.status(401).json({message:"not found"});
+    }
+  })
+
+});
 
 
 router.post('/project', (req, res, next) => {

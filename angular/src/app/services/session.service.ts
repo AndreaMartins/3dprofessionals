@@ -142,7 +142,7 @@ export class SessionService {
 
 //ask changes to update model, delete image an render in the browser
   editProject(id, project){
-    return this.http.post(`${this.BASE_URL}/project/`+ id, project)
+    return this.http.post(`${this.BASE_URL}/changeRequest/`+ id, project)
     .map((response: Response) => {
       console.log("inside response", response)
     return response.json()
