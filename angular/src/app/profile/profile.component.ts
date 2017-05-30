@@ -27,8 +27,8 @@ iscolapse:Boolean = true;
 
   }
 
-  editProfile() {
-          this.router.navigate(['/editprofile']);
+  editProfile(userId) {
+          this.router.navigate(['/editprofile', this.user["_id"]]);
     	}
 
 

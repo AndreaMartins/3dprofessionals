@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FileUploader } from "ng2-file-upload";
 
 @Component({
@@ -13,72 +13,90 @@ export class EditprofileComponent implements OnInit {
   user: Object = {};
   iscolapse:Boolean = true;
 
-  uploader: FileUploader = new FileUploader({
-    url: `https://localhost:3000/api/users`,
+  userId: number;
+  client: Object = {};
+  professional: Object = {};
 
-    authToken: `JWT ${this.session.token}`
+  uploader: FileUploader = new FileUploader({
+    url: `http://localhost:3000/user/photo` ,
+
+    // authToken: `JWT ${this.session.token}`
   });
 
-  newUser = {
-    _id: '',
-    name: '',
-    surname: '',
-    email: '',
-    role: '',
-    password: ''
-  };
-
-  feedback: string;
-
-  isAuth: boolean;
+  // newUser = {
+  //   _id: '',
+  //   name: '',
+  //   surname: '',
+  //   email: '',
+  //   role: '',
+  //   password: '',
+  //   profilePic: ''
+  // };
+  //
+  // feedback: string;
+  //
+  // isAuth: boolean;
 
     constructor(
       private session: SessionService,
       private router:  Router,
-
+      private route: ActivatedRoute
     ) {  }
 
   ngOnInit() {
 
-    let user = JSON.parse(localStorage.getItem("user"))
-    this.session.getUser(user._id)
+    this.route.params.subscribe(params => {
+      this.userId = params['id'];
+      // let user = JSON.parse(localStorage.getItem("user"))
+      this.session.getUser(this.userId)
       .subscribe((user) => {
         this.user = user
-      }); /* Ajax call */
-
-    this.newUser._id = user._id
-    this.newUser.name = user.name
-    this.newUser.surname = user.surname
-    this.newUser.email = user.email
-    this.newUser.password = user.password
-    this.newUser.role = user.role
-
-
-    this.uploader.onSuccessItem = (item, user) => {
-      localStorage.removeItem("user")
-      localStorage.setItem("user", user)
-    };
-
-    this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
-    };
+      });
+    });
 
   }
 
+  // getUser() {
+  //   this.session.getUser(this.userId)
+  //   .subscribe(result => {
+  //     console.log("user component ", result);
+  //     this.user = result;
+  //     this.client = result.client;
+  //     this.professional = result.professional;
+  //
+  //     console.log("this user", this.user)
+  //   });
+  // }
 
   saveProfile() {
-    // console.log("inside component saveProfile")
+    console.log(this.user)
     this.session.edit(this.user)
-      .subscribe((userEdit) => {
-        console.log("subscribe")
-        // this.user = user
-        // this.user = userEdit
+      .subscribe(()=>{
         this.router.navigate(['/profile']);
-      });
-
+      })
+    // console.log("inside component saveProfile")
+    // this.uploader.onBuildItemForm = (item, form) =>{
+    //   form.append("name", this.user['name'])
+    //   form.append("surname",this.user['surname'])
+    //   form.append("email",this.user['email'])
+    //   form.append("password",this.user['password'])
+    //   form.append("projects",this.user['projects'])
+    //   form.append("role",this.user['role'])
+    // }
+    //     this.uploader.uploadAll();
+    //     this.router.navigate(['/profile']);
   }
 
-  logout() {
+savePhoto() {
+  this.uploader.onBuildItemForm = (item, form) =>{
+    form.append("id", this.user['_id'])
+  }
+      this.uploader.uploadAll();
+      window.location.reload()
+      this.router.navigate(['/profile']);
+}
+
+logout() {
   this.session.logout();
 }
 

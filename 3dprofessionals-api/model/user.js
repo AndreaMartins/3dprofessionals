@@ -9,7 +9,7 @@ const userSchema = new Schema({
   email: String,
   password: String,
   profilePic: {
-    type: String, default: '/icons/profiletest1.jpg'
+    type: String, default: ''
   },
   role: {
      type: String,

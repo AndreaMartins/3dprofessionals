@@ -26,7 +26,7 @@
 
 <div id="upper-border"><h1 class="text-center">Edit profile</h1></div>
 
-<div class="container-fluid">
+<div class="container-fluid main-container">
       <div class="row profile-row">
         <div class="jumbotron banner">
           <div class="row">
@@ -89,7 +89,7 @@
 
               <!-- Text input-->
 
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label class="col-md-4 control-label" >Confirm Password</label>
                 <div class="col-md-4 inputGroupContainer">
                   <div class="input-group">
@@ -97,7 +97,7 @@
                     <input name="confirm_password" placeholder="Confirm Password" class="form-control" [(ngModel)]="user.password" type="password">
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Text input-->
                 <div class="form-group">
@@ -111,6 +111,27 @@
                 </div>
 
 
+                <!-- <div *ngIf="user.profilePic!==''" class="form-group current-image-container">
+                  <div class="current-image-label">
+                    <label  class="control-label">Current photo : </label>
+                  </div>
+                    <img  class="img-responsive user-image" src= "http://localhost:3000/{{user.profilePic}}">
+                </div> -->
+
+                <fieldset class="uploader-container">
+                  <!-- <label class="control-label upload-image-label">Upload image : </label> -->
+                  <div class="uploader-div">
+                    <label for="file-upload" class="btn btn-primary">
+                      <i class="fa fa-cloud-upload"></i> Upload photo
+                    </label>
+                    <input id="file-upload" type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader">
+                    <!-- <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" /> -->
+                    <button type="button" id="save-photo" class="btn btn-primary" (click)="savePhoto()">Save photo</button>
+
+                  </div>
+                </fieldset>
+
+
               <!-- Success message -->
                <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
 
@@ -118,7 +139,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label"></label>
                   <div class="col-md-4"><br>
-             <button type="button" class="btn btn-primary" (click)="saveProfile()">Save</button>
+                     <button type="button" class="btn btn-primary" (click)="saveProfile()">Save all</button>
                   </div>
                 </div>
 
@@ -130,9 +151,6 @@
         </div>
   </div><!-- row -->
 </div><!-- container -->
-
-
-<br><br>
 <footer>
   <div class="container">
   <div class="row">

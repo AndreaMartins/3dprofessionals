@@ -1,3 +1,8 @@
+.dashboard-nav {
+  border-bottom: none;
+  background: white;
+}
+
 h4 {
   display: block;
 }
@@ -14,10 +19,12 @@ h4 {
   padding: 2rem 0;
   margin-top: 4rem;
   text-align: center;
+  border-radius: 6px;
 }
 
 .banner {
   background-image: url("../../assets/images/architecture.jpg");
+  height: 150%;
 }
 
 .professionals-brand {
@@ -94,4 +101,10 @@ nav .glyphicon-off {
 .img-helper-custom{
   width: 80px;
   height: auto;
+}
+
+.user-image {
+  width: 30%;
+  margin: 1rem auto;
+  border-radius: 6px;
 }
