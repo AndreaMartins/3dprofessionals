@@ -71,6 +71,9 @@ form {
 .select-prof-div {
   border: 1px solid #C4C4C4;
   border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+
 }
 .select-prof {
   padding: 1rem;
