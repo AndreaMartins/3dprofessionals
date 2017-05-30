@@ -1,4 +1,4 @@
-
+/*jshint esversion: 6 */
 const express = require('express');
 const passport = require("../config/passport");
 const multer = require('multer');
@@ -87,7 +87,7 @@ newProject.save((err,project)=>{
         User.findByIdAndUpdate({_id: project.professional},{$push: { projects: project.id,}}, (err) => {
             if (err) res.status(401).json({message:"not found"});
             else{
-              res.status(200).json(project)
+              res.status(200).json(project);
                 }
         });
         }

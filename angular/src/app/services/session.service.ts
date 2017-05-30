@@ -133,7 +133,7 @@ getUser(id){
 
 
   edit(user){
-    return this.http.post("http://localhost:3000/update", user )
+    return this.http.put(`${this.BASE_URL}/user/`+user._id, user )
     .map((response: Response) => {
       console.log("inside response")
       response.json()

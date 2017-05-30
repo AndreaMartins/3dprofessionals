@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -12,11 +12,12 @@ var auth = require('./routes/auth');
 var project = require('./routes/projects');
 var cors = require('cors');
 
+require('./config/database');
 var app = express();
 
 var corsOptions = {credentials: true, origin: 'http://localhost:4200'};
 
-mongoose.connect(`mongodb://localhost:27017/3dprofessionals`);
+// mongoose.connect(`mongodb://localhost:27017/3dprofessionals`);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

@@ -17,5 +17,5 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [SessionService] },
   { path: 'profile', component: ProfileComponent, canActivate: [SessionService] },
   { path: 'project/:id', component: ProjectComponent, canActivate: [SessionService] },
-  { path: 'editprofile', component: EditprofileComponent, canActivate: [SessionService] }
+  { path: 'editprofile/:id', component: EditprofileComponent, canActivate: [SessionService] }
 ];

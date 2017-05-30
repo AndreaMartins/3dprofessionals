@@ -61,9 +61,11 @@ router.get('/users', (req, res, next) => {
 
 //Post Edit Profile
 
-router.post("/update", (req, res, next) => {
+router.post("/update/:id", upload.single("file"), (req, res, next) => {
   //this should be later router.post('/update', upload.single('profile_image'), (req, res, next) => {
   console.log("inside update", req.body);
+  console.log(req.params);
+  console.log(req.file)
 
 
 
@@ -76,7 +78,6 @@ router.post("/update", (req, res, next) => {
           email: req.body.email,
           password: req.body.password
         };
-
     } else {
         userInfo = {
           name: req.body.name,
@@ -87,26 +88,39 @@ router.post("/update", (req, res, next) => {
         };
     }
 
-    var userId = req.body._id.toString();
-    userId = mongoose.Types.ObjectId(userId);
 
 
-    User.findByIdAndUpdate(userId, userInfo, (err, user)=>{
+
+    User.findByIdAndUpdate(req.params.id, userInfo, (err, user)=>{
       if (err) {
-
         next(err);
       } else {
-
-
         res.json({user});
       }
     });
-  // User.findByIdAndUpdate(req.user._id, userInfo, (err, user)=>{
-  //   console.log("sad")
-  //
-  // });
+
 });
 
+
+/* post a new image */
+router.post('/user/photo', upload.single('file'), function(req, res) {
+  console.log("heyyy");
+  // console.log(req.body.id, req.file);
+  let user = req.body.id;
+  image = {
+    profilePic: `/uploads/${req.file.filename}`
+  };
+console.log(user);
+console.log(image);
+  User.findByIdAndUpdate(user, image, {new: true},(err, user)=>{
+    if (err) res.status(401).json({message:"not found"});
+    else{
+      console.log(user);
+      res.json(user);
+    }
+  });
+
+});
 
 //Get Delete Profile
 
@@ -118,6 +132,18 @@ router.get('/:id/deleteprofile', (req, res, next) => {
 
     res.redirect('/home');
   });
+});
+
+// route edit info profile
+router.put('/user/:id',(req, res, next) => {
+
+  const profileInfo = req.body;
+  User.findByIdAndUpdate(req.params.id, profileInfo , (err, user) => {
+    if (err) {return res.send(err); }
+    return res.json(user);
+  });
+
+
 });
 
 module.exports = router;
