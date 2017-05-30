@@ -10,14 +10,19 @@ import { FileUploader } from "ng2-file-upload";
 })
 
 export class ProjectComponent implements OnInit {
+
+  newProject = {
+    changeDescription: '',
+  };
+
   iscolapse:Boolean = true;
   project: Object = {};
   projectId: number;
   client: Object = {};
   professional: Object = {};
   user: Object = {};
+  changeDescription: string;
   uploader: FileUploader = new FileUploader({
-
   });
 
 
@@ -35,7 +40,7 @@ export class ProjectComponent implements OnInit {
       let user = JSON.parse(localStorage.getItem("user"))
       this.session.getUser(user._id)
       .subscribe((user) => {
-        this.user = user
+      this.user = user
       });
     });
   }
@@ -43,12 +48,11 @@ export class ProjectComponent implements OnInit {
   getProject() {
     this.session.getProject(this.projectId)
     .subscribe(result => {
-      console.log("project component ", result);
-      this.project = result;
-      this.client = result.client;
-      this.professional = result.professional;
-
-      console.log("this project", this.project)
+    console.log("project component ", result);
+    this.project = result;
+    this.client = result.client;
+    this.professional = result.professional;
+    console.log("this project", this.project)
     });
   }
 
@@ -63,7 +67,20 @@ export class ProjectComponent implements OnInit {
   }
 
   logout() {
-      this.session.logout();
-    }
+    this.session.logout();
+  }
 
-}
+  askChanges(){
+    this.session.editProject(this.projectId, this.newProject)
+    .subscribe(result => {
+      this.project = result
+    });
+  }
+
+  }
+    // first create a method to post to the server
+    // when posting you want to pass the id of the project and the object newProject
+    // on the backend you create a post that picksup object and id, create a new object that has image path set to
+    // "", and the value of newProject
+    // Project.FindByIdAndUpdate (with the id that you pass from angular, and pass the object)
+    // send back the adjusted project
