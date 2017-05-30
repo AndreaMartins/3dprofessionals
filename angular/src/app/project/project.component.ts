@@ -79,6 +79,7 @@ export class ProjectComponent implements OnInit {
       this.newProject.changeDescription = result.changeDescription
     });
   }
+
   }
     // first create a method to post to the server
     // when posting you want to pass the id of the project and the object newProject
