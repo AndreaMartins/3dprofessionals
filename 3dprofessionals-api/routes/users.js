@@ -76,7 +76,8 @@ router.post("/update/:id", upload.single("file"), (req, res, next) => {
           name: req.body.name,
           surname: req.body.surname,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          fee: req.body.fee
         };
     } else {
         userInfo = {
@@ -84,6 +85,7 @@ router.post("/update/:id", upload.single("file"), (req, res, next) => {
           surname: req.body.surname,
           email: req.body.email,
           password: req.body.password,
+          fee: req.body.fee,
           profilePic: 'uploads/' + req.file.filename
         };
     }

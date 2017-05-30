@@ -31,6 +31,7 @@
                 <h4>Surname: {{user.surname}}</h4>
                 <h4>Email: {{user.email}}</h4>
                 <h4>Role: {{user.role}}</h4>
+                <h4 *ngIf="user.role!=='CLIENT'">Fee: {{user.fee}} € / photo</h4>
 
                 <div *ngIf="user.profilePic!==''" class="form-group current-image-container">
                   <div class="current-image-label">

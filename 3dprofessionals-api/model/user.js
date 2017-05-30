@@ -8,6 +8,7 @@ const userSchema = new Schema({
   surname: String,
   email: String,
   password: String,
+  fee: Number,
   profilePic: {
     type: String, default: ''
   },
