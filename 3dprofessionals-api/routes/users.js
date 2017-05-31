@@ -126,13 +126,19 @@ console.log(image);
 
 //Get Delete Profile
 
-router.get('/:id/deleteprofile', (req, res, next) => {
+router.get('/profile/:id', (req, res, next) => {
+
+});
+
+router.delete('/profile/:id', (req, res, next) => {
   const id = req.params.id;
-  // console.log(id);
+  console.log(id);
+  console.log("HEYY");
   User.deleteOne({ _id: id }, (err) => {
     if (err) { next(err); }
-
-    res.redirect('/home');
+    return res.json({
+      message: 'User has been removed!'
+    });
   });
 });
 

@@ -32,7 +32,11 @@ iscolapse:Boolean = true;
     	}
 
   deleteProfile(userId) {
-            this.router.navigate(['/deleteprofile', this.user["_id"]]);
+    console.log("hi from the delete profile")
+            this.session.remove(this.user["_id"])
+            .subscribe(()=>{
+                this.router.navigate(['/signup']);
+            });
         	}
 
   logout() {

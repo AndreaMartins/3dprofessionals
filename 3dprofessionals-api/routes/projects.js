@@ -28,6 +28,7 @@ router.get("/",(req, res, next)=>{
 });
 
 
+
 //Get project
 router.get('/project/:id', (req, res, next) => {
   let project = req.params.id;
@@ -48,6 +49,20 @@ router.get('/project/:id', (req, res, next) => {
       });
 
     }
+  });
+});
+
+//Get Delete Project
+
+
+router.delete('/project/:id', (req, res, next) => {
+  const id = req.params.id;
+  console.log("Inside the delete project", id);
+  Project.deleteOne({ _id: id }, (err) => {
+    if (err) { next(err); }
+    return res.json({
+      message: 'Project has been removed!'
+    });
   });
 });
 
