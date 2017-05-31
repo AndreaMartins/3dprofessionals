@@ -56,6 +56,13 @@ export class ProjectComponent implements OnInit {
     });
   }
 
+deleteProject(){
+  console.log("hi from the delete profile")
+          this.session.removeProject(this.project["_id"])
+          .subscribe(()=>{
+              this.router.navigate(['/dashboard']);
+          });
+}
   submit() {
     console.log(this.uploader)
     this.uploader.uploadAll();

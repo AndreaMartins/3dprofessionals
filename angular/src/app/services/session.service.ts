@@ -111,6 +111,16 @@ export class SessionService {
       .map((res) => res.json());
   }
 
+  removeProject(id) {
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.token });
+    let options = new RequestOptions({ headers: headers });
+    console.log(`${this.BASE_URL}/project/${id}`)
+    console.log(options)
+
+    return this.http.delete(`${this.BASE_URL}/project/${id}`, options)
+      .map((res) => res.json());
+  }
+
   getUser(id){
     return this.http.get(`${this.BASE_URL}/user/`+id)
     .map((response: Response) => {
