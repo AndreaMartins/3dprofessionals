@@ -94,6 +94,7 @@
       <label *ngIf="user.role === 'PROFESSIONAL'" for="file-upload" class="btn btn-primary" id="choose-photo">
         <i class="fa fa-cloud-upload"></i> Choose photo
       </label>
+      <div class="buffer">&nbsp;</div>
       <input *ngIf="user.role === 'PROFESSIONAL'"  id="file-upload" type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader">
       <button *ngIf="user.role === 'PROFESSIONAL'" (click)="submit()" class="btn btn-primary project-submit-button" id="save-button"><i class="glyphicon glyphicon-save"></i> Save Image </button>
     </div>

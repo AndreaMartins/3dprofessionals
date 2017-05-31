@@ -3,6 +3,10 @@
   background: white;
 }
 
+main {
+  font-size: 1.7rem;
+}
+
 .professionals-brand {
   color: black;
 }
@@ -150,4 +154,7 @@ input:checked + figure:before {
 #choose-photo {
   margin: 0 auto;
   display: block;
+}
+.buffer {
+  width: 5px;
 }
