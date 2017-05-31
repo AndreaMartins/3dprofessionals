@@ -138,3 +138,16 @@ input:checked + figure:before {
   display: block;
   cursor: pointer;
 }
+
+#file-upload {
+  display: none;
+}
+
+#save-button {
+  margin: 0 auto;
+  display: block;
+}
+#choose-photo {
+  margin: 0 auto;
+  display: block;
+}
