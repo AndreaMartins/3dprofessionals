@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   starttime: String,
   description: String,
   changeDescription: String,
-  changeStatus: Boolean,
+  changeStatus: String,
   considerations: String,
   price: Number,
   date: Date,

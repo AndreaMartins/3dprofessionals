@@ -13,6 +13,7 @@ export class ProjectComponent implements OnInit {
 
   newProject = {
     changeDescription: '',
+    changeStatus: ""
   };
 
   iscolapse:Boolean = true;
@@ -80,11 +81,16 @@ deleteProject(){
   }
 
   acceptProject(){
-    this.changeStatus = "YES";
-    console.log(this.changeStatus)
+    this.newProject.changeStatus = "FINISHED";
+    this.session.acceptProject(this.projectId, this.newProject)
+    .subscribe(result => {
+      console.log(result)
+      this.project = result
+    });
   }
 
   askChanges(){
+    this.newProject.changeStatus = "SOME CHANGES PLEASE";
     this.session.editProject(this.projectId, this.newProject)
     .subscribe(result => {
       this.project = result

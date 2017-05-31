@@ -169,6 +169,16 @@ export class SessionService {
     });
 }
 
+//ask changes to update model, delete image an render in the browser
+  acceptProject(id, project){
+    return this.http.post(`${this.BASE_URL}/projectAccept/`+ id, project)
+    .map((response: Response) => {
+      console.log("inside response", response)
+    return response.json()
+    });
+}
+
+
   logout() {
     // clear token remove user from local storage to log user out
     this.token = null;

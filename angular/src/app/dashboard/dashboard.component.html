@@ -136,7 +136,7 @@
       </div>
       <div class="project-buttons-div col-md-3 col-sm-6" *ngFor="let project of user.projects" >
        <br>
-       <button class="project-button" [routerLink]="['/project', project._id]" >{{project.name}}</button>
+       <button class="project-button" [routerLink]="['/project', project._id]" >{{project.name}} <br> {{project.changeStatus}}</button>
        <br>
      </div>
     </section>

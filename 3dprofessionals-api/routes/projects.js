@@ -82,26 +82,51 @@ router.post('/project/:id', upload.single('file'), function(req, res) {
 
 });
 
+// /* post a new image */
+router.post('/projectAccept/:id', function(req, res) {
+  let project = req.params.id;
+  changeStatus = {
+    changeStatus: req.body.changeStatus
+  };
+
+  Project.findByIdAndUpdate(project, changeStatus, (err,project)=>{
+    if (err) res.status(401).json({message:"not found"});
+    else{
+      res.json(project)
+    }
+  });
+
+});
+
 /* post a new image */
 router.post('/changeRequest/:id', upload.single('file'), function(req, res) {
-  console.log("req", req.body);
+let project = req.params.id;
+changeStatus = {
+  changeStatus: req.body.changeStatus,
+  changeDescription: req.body.changeDescription,
+};
 
-  let projectId = req.params.id;
-  Project.findById(projectId, (err,project)=>{
-    if (req.body.changeDescription !== "") {
-      project.changeDescription = req.body.changeDescription
+Project.findByIdAndUpdate(project, changeStatus, {new: true}, (err,project)=>{
+  if (err) res.status(401).json({message:"not found"});
+  else{
+    res.json(project)
+  }
+});
 
-      project.save((err)=>{
-        if (err) {
-          throw err
-        } else {
-          res.json(project)
-        }
-      })
-    } else {
-      res.status(401).json({message:"not found"});
-    }
-  })
+  // Project.findById(projectId,(err,project)=>{
+  //   if (req.body.changeDescription !== "") {
+  //     project.changeDescription = req.body.changeDescription
+  //     project.save((err)=>{
+  //       if (err) {
+  //         throw err
+  //       } else {
+  //         res.json(project)
+  //       }
+  //     })
+  //   } else {
+  //     res.status(401).json({message:"not found"});
+  //   }
+  // })
 
 });
 
