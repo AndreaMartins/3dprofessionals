@@ -23,8 +23,8 @@
 </nav>
 
 
-<h1 *ngIf="project.changeStatus == true"> Some changes please</h1>
-<h1 *ngIf="project.changeStatus == false">Project finished</h1>
+<h1 *ngIf="changeStatus === 'NO'"> Some changes please</h1>
+<h1 *ngIf="changeStatus === 'YES'">Project finished</h1>
 
 <section class="banner"></section>
 <main>
@@ -90,16 +90,16 @@
     </div>
 
     <div class="submit-button-container">
-      <button *ngIf="user.role === 'CLIENT'"  class="btn btn-primary project-submit-button"> ACCEPT </button>
+      <button *ngIf="user.role === 'CLIENT' && changeStatus !== 'YES'"  (click)="acceptProject()" class="btn btn-primary project-submit-button"> ACCEPT </button>
     </div>
     <div class="submit-button-container">
-      <button *ngIf="user.role === 'CLIENT'"  (click)="deleteProject()" class="btn btn-danger project-submit-button"> DELETE </button>
+      <button *ngIf="user.role === 'CLIENT' && changeStatus !== 'YES'" (click)="deleteProject()" class="btn btn-danger project-submit-button"> DELETE </button>
     </div>
     <div class="submit-button-container">
       <div class="input-group">
-      <input *ngIf="user.role === 'CLIENT'" name="changeDescription" placeholder="ask for changes" [(ngModel)]="newProject.changeDescription"  class="form-control"  type="text">
+      <input *ngIf="user.role === 'CLIENT' && changeStatus !== 'YES'" name="changeDescription" placeholder="ask for changes" [(ngModel)]="newProject.changeDescription"  class="form-control"  type="text">
       </div>
-      <button (click)="askChanges()" *ngIf="user.role === 'CLIENT'"  class="btn btn-primary project-submit-button"  > ASK FOR CHANGES</button>
+      <button (click)="askChanges()" *ngIf="user.role === 'CLIENT' && changeStatus !== 'YES'"  class="btn btn-primary project-submit-button"  > ASK FOR CHANGES</button>
     </div>
 
   </form>

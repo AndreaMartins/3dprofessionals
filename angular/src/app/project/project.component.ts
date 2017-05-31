@@ -22,6 +22,7 @@ export class ProjectComponent implements OnInit {
   professional: Object = {};
   user: Object = {};
   changeDescription: string;
+  changeStatus: string;
   uploader: FileUploader = new FileUploader({
   });
 
@@ -33,6 +34,7 @@ export class ProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.changeStatus)
     this.route.params.subscribe(params => {
       this.projectId = params['id'];
       this.getProject();
@@ -75,6 +77,11 @@ deleteProject(){
 
   logout() {
     this.session.logout();
+  }
+
+  acceptProject(){
+    this.changeStatus = "YES";
+    console.log(this.changeStatus)
   }
 
   askChanges(){
