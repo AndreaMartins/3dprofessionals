@@ -23,8 +23,8 @@
 </nav>
 
 
-<h1>Some changes please</h1>
-<h1>Project finished</h1>
+<h1 *ngIf="project.changeStatus == true"> Some changes please</h1>
+<h1 *ngIf="project.changeStatus == false">Project finished</h1>
 
 <section class="banner"></section>
 <main>

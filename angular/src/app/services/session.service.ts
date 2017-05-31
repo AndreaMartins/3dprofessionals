@@ -100,6 +100,16 @@ export class SessionService {
         });
   }
 
+  remove(id) {
+    console.log("Hi from the remove")
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.token });
+    let options = new RequestOptions({ headers: headers });
+    console.log(`${this.BASE_URL}/profile/${id}`)
+    console.log(options)
+
+    return this.http.delete(`${this.BASE_URL}/profile/${id}`, options)
+      .map((res) => res.json());
+  }
 
   getUser(id){
     return this.http.get(`${this.BASE_URL}/user/`+id)
