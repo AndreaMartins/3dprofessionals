@@ -31,6 +31,9 @@ iscolapse:Boolean = true;
           this.router.navigate(['/editprofile', this.user["_id"]]);
     	}
 
+  deleteProfile(userId) {
+            this.router.navigate(['/deleteprofile', this.user["_id"]]);
+        	}
 
   logout() {
       this.session.logout();
