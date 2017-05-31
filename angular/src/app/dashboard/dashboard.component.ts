@@ -56,8 +56,9 @@ user: Object ={};
   ) { }
 
   ngOnInit() {
-
     let user = JSON.parse(localStorage.getItem("user"))
+    console.log(user.role)
+
     this.session.getUser(user._id)
     .subscribe((user) => {
       this.user = user

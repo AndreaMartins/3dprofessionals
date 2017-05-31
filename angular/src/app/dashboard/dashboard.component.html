@@ -27,19 +27,40 @@
 
 <div class="container-fluid container-home-custom">
 
+<section *ngIf="user.role === 'PROFESSIONAL'">
 
-<div class="jumbotron banner">
-  <div class="row">
-    <div class="col-md-12 title text-center">
-      <h1>Hi<span class="subtitle"> {{user.name}}!</span></h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h2>{{user.role}} ACCOUNT</h2>
+  <div class="jumbotron banner">
+    <div class="row">
+      <div class="col-md-12 title text-center">
+        <h1>Hi<span class="subtitle"> {{user.name}}!</span></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>{{user.role}} ACCOUNT</h2>
+      </div>
     </div>
   </div>
-</div>
+
+</section>
+
+<section *ngIf="user.role === 'CLIENT'">
+
+
+  <div class="jumbotron bannir">
+    <div class="row">
+      <div class="col-md-12 title text-center">
+        <h1>Hi<span class="subtitle"> {{user.name}}!</span></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>{{user.role}} ACCOUNT</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>
 
 

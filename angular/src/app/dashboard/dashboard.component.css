@@ -26,7 +26,7 @@ nav .glyphicon-off {
 }
 
 .banner {
-  background-image: url("../../assets/images/architecture.jpg");
+  background-image: url("../../assets/images/architecturer.jpg") ;
   margin-bottom: 0;
   height: 80vh;
   background-repeat: no-repeat;
@@ -39,7 +39,20 @@ nav .glyphicon-off {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.bannir {
+  background-image: url("../../assets/images/architecture.jpg") ;
+  margin-bottom: 0;
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .title {
   margin-top: 20px;
   color: white;
