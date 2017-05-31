@@ -24,6 +24,7 @@
 </nav>
 <div class="container-fluid">
       <div class="row profile-row">
+<section *ngIf="user.role === 'PROFESSIONAL'">
         <div class="jumbotron banner">
           <div class="row profile-container">
             <div class="col-md-12 profile-info text-center">
@@ -45,6 +46,31 @@
             </div>
           </div>
         </div>
+</section>
+<section *ngIf="user.role === 'CLIENT'">
+        <div class="jumbotron bannir">
+          <div class="row profile-container">
+            <div class="col-md-12 profile-info text-center">
+                <h4>Name: {{user.name}}</h4>
+                <h4>Surname: {{user.surname}}</h4>
+                <h4>Email: {{user.email}}</h4>
+                <h4>Role: {{user.role}}</h4>
+                <h4 *ngIf="user.role!=='CLIENT'">Fee: {{user.fee}} € / photo</h4>
+
+                <div *ngIf="user.profilePic!==''" class="form-group current-image-container">
+                  <div class="current-image-label">
+                    <label  class="control-label">Photo : </label>
+                  </div>
+                    <img  class="img-responsive user-image" src= "http://localhost:3000/{{user.profilePic}}">
+                </div>
+
+              <button class="btn btn-primary" (click)="editProfile()"> Edit profile </button>
+              <button class="btn btn-danger" (click)="deleteProfile()" > Delete account </button>
+            </div>
+          </div>
+        </div>
+</section>
+
   </div><!-- row -->
 </div><!-- container -->
 <footer>

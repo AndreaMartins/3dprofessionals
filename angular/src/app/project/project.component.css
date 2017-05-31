@@ -11,8 +11,23 @@ main {
   color: black;
 }
 
+
 .banner {
-  background-image: url("../../assets/images/architecture.jpg");
+  background-image: url("../../assets/images/architecturer.jpg") ;
+  margin-bottom: 0;
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 0px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bannir {
+  background-image: url("../../assets/images/architecture.jpg") ;
   margin-bottom: 0;
   height: 120vh;
   background-repeat: no-repeat;
@@ -84,6 +99,9 @@ label {
 }
 
 #lower-banner {
+  margin-top: -65rem;
+}
+#lower-bannir {
   margin-top: -65rem;
 }
 .current-image-container {

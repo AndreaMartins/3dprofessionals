@@ -28,6 +28,8 @@
 
 <div class="container-fluid main-container">
       <div class="row profile-row">
+
+<section *ngIf="user.role === 'PROFESSIONAL'">
         <div class="jumbotron banner">
           <div class="row">
            <div class="col-md-12 text-center edit-profile-container">
@@ -160,6 +162,142 @@
 
           </div>
         </div>
+</section>
+<section *ngIf="user.role === 'CLIENT'">
+        <div class="jumbotron bannir">
+          <div class="row">
+           <div class="col-md-12 text-center edit-profile-container">
+
+
+              <form class="well form-horizontal" method="post"  id="edit-profile-form">
+               <fieldset>
+
+
+              <!-- Text input-->
+
+              <div class="form-group">
+                  <label class="col-md-4 control-label">Name</label>
+                <div class="col-md-4 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="name" placeholder="{{user.name}}" class="form-control" [(ngModel)]="user.name" type="text">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Text input-->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" >Surname</label>
+                <div class="col-md-4 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="surname" placeholder="{{user.surname}}" class="form-control" [(ngModel)]="user.surname" type="text">
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="form-group">
+                <label class="col-md-4 control-label">Role</label>
+                <div class="col-md-4 selectContainer">
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                      <select name="role" class="form-control selectpicker" [(ngModel)]="user.role">
+                        <option>Client</option>
+                        <option>Professional</option>
+                    </select>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Text input-->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" >Password</label>
+                <div class="col-md-4 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="user_password" placeholder="Password" class="form-control" [(ngModel)]="user.password" type="password">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Text input-->
+
+              <!-- <div class="form-group">
+                <label class="col-md-4 control-label" >Confirm Password</label>
+                <div class="col-md-4 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="confirm_password" placeholder="Confirm Password" class="form-control" [(ngModel)]="user.password" type="password">
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Text input-->
+                <div class="form-group">
+                <label class="col-md-4 control-label">E-Mail</label>
+                  <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input name="email" placeholder="E-Mail Address" class="form-control" [(ngModel)]="user.email" type="text">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div *ngIf="user.role!=='CLIENT'" class="form-group">
+                  <label class="col-md-4 control-label">Fee</label>
+                    <div class="col-md-4 inputGroupContainer">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                          <input name="fee" placeholder="0,00 € / photo" [(ngModel)]="user.fee" class="form-control" type="text">
+                      </div>
+                    </div>
+                </div>
+
+
+                <!-- <div *ngIf="user.profilePic!==''" class="form-group current-image-container">
+                  <div class="current-image-label">
+                    <label  class="control-label">Current photo : </label>
+                  </div>
+                    <img  class="img-responsive user-image" src= "http://localhost:3000/{{user.profilePic}}">
+                </div> -->
+
+                <fieldset class="uploader-container">
+                  <!-- <label class="control-label upload-image-label">Upload image : </label> -->
+                  <div class="uploader-div">
+                    <label for="file-upload" class="btn btn-primary">
+                      <i class="fa fa-cloud-upload"></i> Upload photo
+                    </label>
+                    <input id="file-upload" type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader">
+                    <!-- <input type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader" /> -->
+                    <button type="button" id="save-photo" class="btn btn-primary" (click)="savePhoto()">Save photo</button>
+
+                  </div>
+                </fieldset>
+
+
+              <!-- Success message -->
+               <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
+
+              <!-- Button -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label"></label>
+                  <div class="col-md-4"><br>
+                     <button type="button" class="btn btn-primary" (click)="saveProfile()">Save all</button>
+                  </div>
+                </div>
+
+                 </fieldset>
+                </form>
+           </div>
+
+          </div>
+        </div>
+</section>
+        
   </div><!-- row -->
 </div><!-- container -->
 <footer>

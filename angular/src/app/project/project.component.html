@@ -26,7 +26,8 @@
 <h1 *ngIf="project.changeStatus === 'SOME CHANGES PLEASE' && project.changeStatus !== 'FINISHED'"> Hi {{professional.name}}, some changes please!</h1>
 <h1 *ngIf="project.changeStatus === 'FINISHED'">Project {{project.name}} finished!</h1>
 
-<section class="banner"></section>
+<section *ngIf="user.role === 'PROFESSIONAL'"class="banner"></section>
+<section *ngIf="user.role === 'CLIENT'"class="bannir"></section>
 <main>
   <section class="project-form-container">
     <form class="well form-horizontal" action=" " method="post"  id="project_form">
@@ -120,8 +121,8 @@
 </section>
 </main>
 
-<section class="banner" id="lower-banner"></section>
-
+<section *ngIf="user.role === 'PROFESSIONAL'"class="banner" id="lower-banner"></section>
+<section *ngIf="user.role === 'CLIENT'"class="bannir" id="lower-bannir"></section>
     <!-- <label *ngIf="project.user.role === 'PROFESSIONAL'">Upload project</label> -->
    <footer>
    <div class="container">
