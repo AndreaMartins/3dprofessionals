@@ -10,7 +10,7 @@
 .banner {
   background-image: url("../../assets/images/architecture.jpg");
   margin-bottom: 0;
-  height: 60vh;
+  height: 120vh;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
@@ -21,6 +21,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+h1{
+  color: #007BB6;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 
 main {
   display: flex;
@@ -39,7 +48,7 @@ label {
 }
 
 #project_form{
-  margin-top: -32rem;
+  margin-top: -63rem;
   border-bottom: none;
   background-color: rgba(255, 255, 255, 0.6);
   text-align: center;
@@ -71,7 +80,7 @@ label {
 }
 
 #lower-banner {
-  margin-top: -34rem;
+  margin-top: -65rem;
 }
 .current-image-container {
   display: flex;
@@ -98,21 +107,21 @@ figure {
   width: 100%;
   height: 160px;
 }
-.project-image {
-  width: 40%;
-  margin-left: 1rem;
-  /*display: block;
+img {
+  /*width: 40%;*/
+  border-radius: 8px;
+  display: block;
   width: auto;
   height: 140px;
-  margin: 0 auto;*/
+  margin: 0 auto;
 }
-/*input[type="checkbox"] { display: none; }
+input[type="checkbox"] { display: none; }
 input:checked + figure img {
   position: absolute;
-  top: 100px;
-  left: 50%;
+  top: 150px;
+  left: 43%;
   z-index: 2;
-  width: 400px;
+  width: 600px;
   height: auto;
   margin: 0 0 0 -200px;
 }
@@ -125,7 +134,7 @@ input:checked + figure:before {
   z-index: 1;
   content: "";
 }
-label {
+.current-image-label label {
   display: block;
   cursor: pointer;
-}*/
+}
