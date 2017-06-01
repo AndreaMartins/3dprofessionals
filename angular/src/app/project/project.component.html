@@ -93,7 +93,7 @@
     </fieldset>
     <div class="submit-button-container">
       <label *ngIf="user.role === 'PROFESSIONAL'" for="file-upload" class="btn btn-primary" id="choose-photo">
-        <i class="fa fa-cloud-upload"></i> Choose photo
+        <i class="fa fa-cloud-upload"></i> Choose image
       </label>
       <div class="buffer">&nbsp;</div>
       <input *ngIf="user.role === 'PROFESSIONAL'"  id="file-upload" type="file" name="file" class="uploader" ng2FileSelect [uploader]="uploader">
@@ -124,4 +124,3 @@
 <section *ngIf="user.role === 'PROFESSIONAL'"class="banner" id="lower-banner"></section>
 <section *ngIf="user.role === 'CLIENT'"class="bannir" id="lower-bannir"></section>
     <!-- <label *ngIf="project.user.role === 'PROFESSIONAL'">Upload project</label> -->
-  
