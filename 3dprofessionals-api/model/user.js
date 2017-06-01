@@ -8,6 +8,7 @@ const userSchema = new Schema({
   surname: String,
   email: String,
   password: String,
+  portfolio: String,
   fee: {
      type: Number,
      default : 0

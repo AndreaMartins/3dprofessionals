@@ -18,6 +18,8 @@
                 <option value="PROFESSIONAL">Professional</option>
             </select>
           </div>
+            <br>
+            <input *ngIf="newUser.role === 'PROFESSIONAL'" name="portfolio" placeholder="Link to your portfolio" [(ngModel)]="newUser.portfolio" class="form-control"  type="text">
       			<input name="email" placeholder="Enter your e-mail ID" [(ngModel)]="newUser.email" class="form-control"  type="text">
       			<input name="password" placeholder="Create your password" [(ngModel)]="newUser.password" class="form-control"  type="password">
       			<button type="submit" class="btn btn-primary" (click)="signup()" >Submit</button>
