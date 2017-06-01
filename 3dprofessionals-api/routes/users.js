@@ -62,10 +62,6 @@ router.get('/users', (req, res, next) => {
 //Post Edit Profile
 
 router.post("/update/:id", upload.single("file"), (req, res, next) => {
-  //this should be later router.post('/update', upload.single('profile_image'), (req, res, next) => {
-  console.log("inside update", req.body);
-  console.log(req.params);
-  console.log(req.file)
 
 
 
@@ -106,18 +102,13 @@ router.post("/update/:id", upload.single("file"), (req, res, next) => {
 
 /* post a new image */
 router.post('/user/photo', upload.single('file'), function(req, res) {
-  console.log("heyyy");
-  // console.log(req.body.id, req.file);
   let user = req.body.id;
   image = {
     profilePic: `/uploads/${req.file.filename}`
   };
-console.log(user);
-console.log(image);
   User.findByIdAndUpdate(user, image, {new: true},(err, user)=>{
     if (err) res.status(401).json({message:"not found"});
     else{
-      console.log(user);
       res.json(user);
     }
   });
@@ -132,8 +123,6 @@ router.get('/profile/:id', (req, res, next) => {
 
 router.delete('/profile/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log(id);
-  console.log("HEYY");
   User.deleteOne({ _id: id }, (err) => {
     if (err) { next(err); }
     return res.json({

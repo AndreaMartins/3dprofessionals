@@ -29,11 +29,9 @@ error: string;
   				        .subscribe(result => {
   				            if (result === true) {
   			                // login successful
-                          // console.log("test",result);
   			                this.router.navigate(['/dashboard']);
   			         			} else {
   			                // login failed
-                          console.log('ho',result);
 
   			                this.error = 'Username or password is incorrect';
   				            }

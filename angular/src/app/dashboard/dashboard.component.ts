@@ -57,7 +57,6 @@ user: Object ={};
 
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("user"))
-    console.log(user.role)
 
     this.session.getUser(user._id)
     .subscribe((user) => {
@@ -69,9 +68,7 @@ user: Object ={};
 
    this.session.getProfessional()
    .subscribe(prof => {
-      // console.log(prof)
       this.professionals = prof
-        //  console.log("test", this.professionals)
    });
 
 
@@ -100,13 +97,10 @@ user: Object ={};
     this.newProject.client = client._id
     this.session.createProject(this.newProject)
     .subscribe(result => {
-      console.log("result", result)
       if (result !== "") {
-        // login successful
-        console.log('result ok', result._id);
+        // create project successful
         this.router.navigate(['/project', result._id]);
       } else {
-        console.log('result ko', result);
       }
     });
   }

@@ -90,6 +90,8 @@ form {
 .select-prof {
   padding: 1rem;
   color: #606060;
+  display: flex;
+  flex-direction: row;
 }
 
 .projects {

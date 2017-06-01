@@ -35,7 +35,6 @@ export class ProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.changeStatus)
     this.route.params.subscribe(params => {
       this.projectId = params['id'];
       this.getProject();
@@ -51,23 +50,19 @@ export class ProjectComponent implements OnInit {
   getProject() {
     this.session.getProject(this.projectId)
     .subscribe(result => {
-    console.log("project component ", result);
     this.project = result;
     this.client = result.client;
     this.professional = result.professional;
-    console.log("this project", this.project)
     });
   }
 
 deleteProject(){
-  console.log("hi from the delete profile")
           this.session.removeProject(this.project["_id"])
           .subscribe(()=>{
               this.router.navigate(['/dashboard']);
           });
 }
   submit() {
-    console.log(this.uploader)
     this.uploader.uploadAll();
     window.location.reload()
   }
@@ -84,7 +79,6 @@ deleteProject(){
     this.newProject.changeStatus = "FINISHED";
     this.session.acceptProject(this.projectId, this.newProject)
     .subscribe(result => {
-      console.log(result)
       this.project = result
     });
   }
@@ -98,9 +92,3 @@ deleteProject(){
   }
 
   }
-    // first create a method to post to the server
-    // when posting you want to pass the id of the project and the object newProject
-    // on the backend you create a post that picksup object and id, create a new object that has image path set to
-    // "", and the value of newProject
-    // Project.FindByIdAndUpdate (with the id that you pass from angular, and pass the object)
-    // send back the adjusted project

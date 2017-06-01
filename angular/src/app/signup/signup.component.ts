@@ -35,13 +35,10 @@ export class SignupComponent implements OnInit {
   	this.session.signup(this.newUser)
       .subscribe(result => {
           if (result === true) {
-              // login successful
-              console.log('result ok', result);
+              // signup successful
               this.router.navigate(['/dashboard']);
           } else {
-          		console.log('result ko', result);
-              // login failed
-              // this.error = 'Username or password is incorrect';
+              // signup failed
           }
       });
 

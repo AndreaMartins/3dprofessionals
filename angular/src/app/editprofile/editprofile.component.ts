@@ -20,22 +20,9 @@ export class EditprofileComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/user/photo` ,
 
-    // authToken: `JWT ${this.session.token}`
   });
 
-  // newUser = {
-  //   _id: '',
-  //   name: '',
-  //   surname: '',
-  //   email: '',
-  //   role: '',
-  //   password: '',
-  //   profilePic: ''
-  // };
-  //
-  // feedback: string;
-  //
-  // isAuth: boolean;
+
 
     constructor(
       private session: SessionService,
@@ -47,7 +34,6 @@ export class EditprofileComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.userId = params['id'];
-      // let user = JSON.parse(localStorage.getItem("user"))
       this.session.getUser(this.userId)
       .subscribe((user) => {
         this.user = user
@@ -56,35 +42,11 @@ export class EditprofileComponent implements OnInit {
 
   }
 
-  // getUser() {
-  //   this.session.getUser(this.userId)
-  //   .subscribe(result => {
-  //     console.log("user component ", result);
-  //     this.user = result;
-  //     this.client = result.client;
-  //     this.professional = result.professional;
-  //
-  //     console.log("this user", this.user)
-  //   });
-  // }
-
   saveProfile() {
-    console.log(this.user)
     this.session.edit(this.user)
       .subscribe(()=>{
         this.router.navigate(['/profile']);
       })
-    // console.log("inside component saveProfile")
-    // this.uploader.onBuildItemForm = (item, form) =>{
-    //   form.append("name", this.user['name'])
-    //   form.append("surname",this.user['surname'])
-    //   form.append("email",this.user['email'])
-    //   form.append("password",this.user['password'])
-    //   form.append("projects",this.user['projects'])
-    //   form.append("role",this.user['role'])
-    // }
-    //     this.uploader.uploadAll();
-    //     this.router.navigate(['/profile']);
   }
 
 savePhoto() {

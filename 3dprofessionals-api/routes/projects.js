@@ -11,18 +11,12 @@ const Project  = require("../model/project");
 const User = require("../model/user");
 
 
-
-// const auth = require("../helpers/auth");
-// const flash    = require("connect-flash");
-// const upload = multer({ dest: 'public/uploads/' });
-
 //public information of all items
 router.get("/",(req, res, next)=>{
   Project.find({},(err,projects) => {
     if (err) {
       next(err);
     } else {
-      // res.render('project/showprojects',{projects});
     }
   });
 });
@@ -57,7 +51,6 @@ router.get('/project/:id', (req, res, next) => {
 
 router.delete('/project/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log("Inside the delete project", id);
   Project.deleteOne({ _id: id }, (err) => {
     if (err) { next(err); }
     return res.json({
@@ -66,7 +59,7 @@ router.delete('/project/:id', (req, res, next) => {
   });
 });
 
-// /* post a new image */
+// post a new image
 router.post('/project/:id', upload.single('file'), function(req, res) {
   let project = req.params.id;
   image = {
@@ -82,7 +75,7 @@ router.post('/project/:id', upload.single('file'), function(req, res) {
 
 });
 
-// /* post a new image */
+// post a new project
 router.post('/projectAccept/:id', function(req, res) {
   let project = req.params.id;
   changeStatus = {
@@ -98,7 +91,7 @@ router.post('/projectAccept/:id', function(req, res) {
 
 });
 
-/* post a new image */
+// post a new change
 router.post('/changeRequest/:id', upload.single('file'), function(req, res) {
 let project = req.params.id;
 changeStatus = {
@@ -112,21 +105,6 @@ Project.findByIdAndUpdate(project, changeStatus, {new: true}, (err,project)=>{
     res.json(project)
   }
 });
-
-  // Project.findById(projectId,(err,project)=>{
-  //   if (req.body.changeDescription !== "") {
-  //     project.changeDescription = req.body.changeDescription
-  //     project.save((err)=>{
-  //       if (err) {
-  //         throw err
-  //       } else {
-  //         res.json(project)
-  //       }
-  //     })
-  //   } else {
-  //     res.status(401).json({message:"not found"});
-  //   }
-  // })
 
 });
 

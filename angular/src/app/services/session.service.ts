@@ -31,7 +31,7 @@ export class SessionService {
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (localStorage.getItem('token')) {
-      // logged in so return true\
+      // logged in so return true
       this.token = localStorage.getItem('token');
       this.user = jwtDecode(this.token).user;
       this.isAuth = true;
@@ -48,7 +48,6 @@ export class SessionService {
   }
 
   signup(user) {
-    console.log(user)
     return this.http.post(`${this.BASE_URL}/signup`, user)
       .map((response) => response.json())
       .map((response) => {
@@ -76,7 +75,6 @@ export class SessionService {
   login(user) {
     return this.http.post(`${this.BASE_URL}/login`, user)
         .map((response: Response) => {
-          // console.log("testetst1111")
             // login successful if there's a jwt token in the response
             let token = response.json() && response.json().token;
             let user = response.json() && response.json().user;
@@ -94,18 +92,14 @@ export class SessionService {
               return true;
             } else {
               // return false to indicate failed login
-              console.log("testetst")
               return false;
             }
         });
   }
 
   remove(id) {
-    console.log("Hi from the remove")
     let headers = new Headers({ 'Authorization': 'JWT ' + this.token });
     let options = new RequestOptions({ headers: headers });
-    console.log(`${this.BASE_URL}/profile/${id}`)
-    console.log(options)
 
     return this.http.delete(`${this.BASE_URL}/profile/${id}`, options)
       .map((res) => res.json());
@@ -114,8 +108,6 @@ export class SessionService {
   removeProject(id) {
     let headers = new Headers({ 'Authorization': 'JWT ' + this.token });
     let options = new RequestOptions({ headers: headers });
-    console.log(`${this.BASE_URL}/project/${id}`)
-    console.log(options)
 
     return this.http.delete(`${this.BASE_URL}/project/${id}`, options)
       .map((res) => res.json());
@@ -129,7 +121,7 @@ export class SessionService {
   }
 
 
-//to get professional and pass the information
+//get professional and pass the information
   getProfessional(){
     return this.http.get(`${this.BASE_URL}/users/professionals/`+ "PROFESSIONAL")
     .map((response: Response) => {
@@ -155,7 +147,6 @@ export class SessionService {
   edit(user){
     return this.http.put(`${this.BASE_URL}/user/`+user._id, user )
     .map((response: Response) => {
-      console.log("inside response")
       response.json()
     });
   }
@@ -164,16 +155,13 @@ export class SessionService {
   editProject(id, project){
     return this.http.post(`${this.BASE_URL}/changeRequest/`+ id, project)
     .map((response: Response) => {
-      console.log("inside response", response)
     return response.json()
     });
 }
 
-//ask changes to update model, delete image an render in the browser
   acceptProject(id, project){
     return this.http.post(`${this.BASE_URL}/projectAccept/`+ id, project)
     .map((response: Response) => {
-      console.log("inside response", response)
     return response.json()
     });
 }

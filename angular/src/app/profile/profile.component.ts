@@ -32,7 +32,6 @@ iscolapse:Boolean = true;
     	}
 
   deleteProfile(userId) {
-    console.log("hi from the delete profile")
             this.session.remove(this.user["_id"])
             .subscribe(()=>{
                 this.router.navigate(['/signup']);

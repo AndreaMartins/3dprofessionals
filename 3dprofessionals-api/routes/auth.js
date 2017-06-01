@@ -23,7 +23,6 @@ router.post("/login", function(req, res) {
   }
 
   if (req.body.email === "" || req.body.password === "") {
-        console.log('fields');
     res.json({message:"fill up the fields"});
     return;
   }
@@ -34,11 +33,9 @@ router.post("/login", function(req, res) {
 	    res.status(401).json({message:"no such user found"});
 	  } else {
       bcrypt.compare(password, user.password, function(err, isMatch) {
-        console.log(isMatch);
         if (!isMatch) {
           res.status(401).json({message:"passwords did not match"});
         } else {
-        	console.log('user', user);
           var payload = {id: user._id/*, user: user.email*/};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
           res.json({message: "ok", token: token, user: user});
@@ -49,7 +46,6 @@ router.post("/login", function(req, res) {
 });
 
 router.post("/signup", (req, res, next) => {
-  console.log('hi')
   var name = req.body.name;
   var surname = req.body.surname;
   var email = req.body.email;
@@ -82,11 +78,10 @@ router.post("/signup", (req, res, next) => {
       if (err) {
         res.status(400).json({ message: err });
       } else {
-        var payload = {id: user._id/*, user: user.email*/};
+        var payload = {id: user._id};
 
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
         res.status(200).json({message: "ok", token: token , user: user});
-      	// res.status(200).json(user);
       }
     });
   });
